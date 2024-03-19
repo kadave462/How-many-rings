@@ -2,25 +2,27 @@
 
   <% @games.each do |game| %>
     <div class="row justify-content-center m-3">
-      <div class='col-8 d-flex border p-3 align-items-center'>
+      <div class='col-12 border p-3 align-items-center d-flex justify-content-between'>
 
-        <div>
-          <%= image_tag game.cover, size: "100x150" %>
+        <div class='d-flex'>
+          <div>
+            <%= image_tag game.cover, size: "100x150" %>
+          </div>
+
+          <div class='p-3'>
+            <h3><%= game.title %></h3>
+            <%= game.platform %><br>
+            <em><%= game.publisher %></em><br>
+            <%= game.offers.size %> annonce.s pour ce jeu.
+          </div>
         </div>
 
         <div class='p-3'>
-          <h3><%= game.title %></h3>
-          <%= game.platform %><br>
-          <em><%= game.publisher %></em><br>
-          <%= game.offers.size %> annonce.s pour ce jeu.
-        </div>
-
-        <div class='p-3'>
-          <%= link_to game_path(game), class: 'btn btn-primary' do %>
+          <%= link_to game_path(game), class: 'btn btn-primary d-block' do %>
             Détails du jeu
           <% end %>
           <br><br>
-          <%= link_to new_game_offer_path(game), class: 'btn btn-success' do %>
+          <%= link_to new_game_offer_path(game), class: 'btn btn-success d-block' do %>
             Estimer mon exemplaire
           <% end %>
         </div>
