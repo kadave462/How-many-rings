@@ -1,4 +1,4 @@
-class OwnedGame < ApplicationRecord
+class Offer < ApplicationRecord
   belongs_to :user
   belongs_to :game
 end

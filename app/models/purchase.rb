@@ -1,5 +1,5 @@
 class Purchase < ApplicationRecord
   belongs_to :user
-  belongs_to :owned_game
-  has_many :games, through: :owned_games
+  belongs_to :offer
+  has_many :games, through: :offers
 end
