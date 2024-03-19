@@ -1,6 +1,6 @@
-class CreateOwnedGames < ActiveRecord::Migration[7.1]
+class CreateOffers < ActiveRecord::Migration[7.1]
   def change
-    create_table :owned_games do |t|
+    create_table :offers do |t|
       t.references :user, null: false, foreign_key: true
       t.references :game, null: false, foreign_key: true
       t.date :adding_date

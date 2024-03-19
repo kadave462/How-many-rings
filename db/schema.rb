@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_153903) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_19_105153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_153903) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "owned_games", force: :cascade do |t|
+  create_table "offers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "game_id", null: false
     t.date "adding_date"
@@ -40,18 +40,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_153903) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_owned_games_on_game_id"
-    t.index ["user_id"], name: "index_owned_games_on_user_id"
+    t.index ["game_id"], name: "index_offers_on_game_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "purchases", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "owned_game_id", null: false
+    t.bigint "offer_id", null: false
     t.time "date"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["owned_game_id"], name: "index_purchases_on_owned_game_id"
+    t.index ["offer_id"], name: "index_purchases_on_offer_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
@@ -67,8 +67,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_153903) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "owned_games", "games"
-  add_foreign_key "owned_games", "users"
-  add_foreign_key "purchases", "owned_games"
+  add_foreign_key "offers", "games"
+  add_foreign_key "offers", "users"
+  add_foreign_key "purchases", "offers"
   add_foreign_key "purchases", "users"
 end
