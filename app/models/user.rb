@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :offers
   has_many :purchases
   has_many :games, through: :offers
+
+  validates :email, uniqueness: true
 end
