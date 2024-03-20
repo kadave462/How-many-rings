@@ -4,14 +4,16 @@
       <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710847333/test/logo_rings_paviez.png", width:"40", height:"40" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
     <%# bouton recherche %>
 
     <%= form_with method: :get do |form| %>
-      <%= form.text_field :query, class: 'form-control rounded-4' %>
+      <%= form.text_field :query, class: 'form-control form-control-sm form-sm me-1 rounded-4 rounded', placeholder: 'Rechercher' %>
     <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
