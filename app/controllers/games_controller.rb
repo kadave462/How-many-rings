@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   # before_action :set_game, only: [:show, :edit, :update, :destroy](change this line later)
 
   def show
+    @offers = @game.offers
   end
 
   private
