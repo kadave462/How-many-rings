@@ -12,16 +12,17 @@
         <p class="card-text">genre : <strong><%=@game.genre%></strong></p>
         <p class="card-text">released : <strong><%=@game.release_year%></strong></p>
         <div class = "btn btn-danger">
-          <%= link_to "add to my collection", "#"%>
+          <%= link_to "add to my collection", new_game_offer_path(@game)%>
         </div>
     </div>
   </div>
   <div>
   <% @offers.each do |offer| %>
     <ul>
-    <li>offer id is: <%= offer.id %></li>
+    <li>offer username is: <%= offer.user.username %></li>
     <li>offer price is: <%= offer.price %></li>
     <li>offer descritpiton is: <%= offer.description %></li>
+    <%= link_to "buy this product", "#"%>
     </ul>
   <% end %>
   </div>
