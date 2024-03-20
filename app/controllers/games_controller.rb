@@ -1,11 +1,14 @@
 class GamesController < ApplicationController
-  def index
-    @games = Game.all
-    @offers = Offer.all
-  end
-
   before_action :set_game, only: [:show]
-  # before_action :set_game, only: [:show, :edit, :update, :destroy](change this line later)
+
+  def index
+    @query = params[:query]
+    if @query.blank?
+      @games = Game.all
+    else
+      @games = Game.where('title ILIKE ?', "%#{@query}%")
+    end
+  end
 
   def show
   end

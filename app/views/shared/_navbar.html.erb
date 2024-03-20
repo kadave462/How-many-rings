@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon rounded-4 rounded-top-0 border border-2 border-black-subtitle" style="background-color: #ffffff;">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710847333/test/logo_rings_paviez.png", width:"40", height:"40" %>
     <% end %>
 
@@ -8,10 +8,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <%# bouton recherche %>
-  <form class="d-flex" role="search">
-      <input class="form-control me-2 rounded-4 rounded" type="search" aria-label="Search">
-      <button class="btn btn-outline-primary p-2 rounded-4 rounded opacity-75" type="submit">Recherche</button>
-    </form>
+
+    <%= form_with method: :get do |form| %>
+      <%= form.text_field :query, class: 'form-control rounded-4' %>
+    <% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
