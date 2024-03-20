@@ -7,7 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Game.create(
+Offer.destroy_all
+Game.destroy_all
+User.destroy_all
+
+game1 = Game.create!(
   title: 'Grand Theft Auto V',
   release_year: 2022,
   description: '',
@@ -17,7 +21,7 @@ Game.create(
   publisher: 'Rockstar Games'
 )
 
-Game.create(
+game2 = Game.create!(
   title: 'Sonic & Knuckles',
   release_year: 1994,
   description: '',
@@ -27,7 +31,7 @@ Game.create(
   publisher: 'SEGA'
 )
 
-Game.create(
+game3 = Game.create!(
   title: 'EA Sports FC 24',
   release_year: 2023,
   description: '',
@@ -37,7 +41,7 @@ Game.create(
   publisher: 'Electronic Arts'
 )
 
-Game.create(
+game4 = Game.create!(
   title: 'Gran Turismo',
   release_year: 1997,
   description: 'blank description for david',
@@ -47,7 +51,7 @@ Game.create(
   publisher: 'Sony'
 )
 
-Game.create(
+game5 = Game.create!(
   title: 'The Legend of Zelda : Ocarina of Time',
   release_year: 1998,
   description: '',
@@ -57,56 +61,59 @@ Game.create(
   publisher: 'Nintendo'
 )
 
-User.create(
+user1 = User.create!(
+  username: 'julien',
   email: 'julien@email.com',
   password: 'julien'
 )
 
-User.create(
+user2 = User.create!(
+  username: 'john',
   email: 'jonathan@email.com',
   password: 'jonathan'
 )
 
-User.create(
+user3 = User.create!(
+  username: 'david',
   email: 'david@email.com',
   password: 'davidk'
 )
 
-Offer.create(
-  user_id: 2,
-  game_id: 5,
+Offer.create!(
+  user_id: user1.id,
+  game_id: game5.id,
   on_sale: true,
   description: 'blank description for david',
   price: 150
 )
 
-Offer.create(
-  user_id: 1,
-  game_id: 2,
+Offer.create!(
+  user_id: user1.id,
+  game_id: game2.id,
   on_sale: true,
   description: 'blank description for david',
   price: 130
 )
 
-Offer.create(
-  user_id: 3,
-  game_id: 1,
+Offer.create!(
+  user_id: user2.id,
+  game_id: game1.id,
   on_sale: true,
   description: 'blank description for david',
   price: 25
 )
 
-Offer.create(
-  user_id: 1,
-  game_id: 1,
+Offer.create!(
+  user_id: user1.id,
+  game_id: game1.id,
   on_sale: true,
   description: 'blank description for david',
   price: 55
 )
 
-Offer.create(
-  user_id: 2,
-  game_id: 1,
+Offer.create!(
+  user_id: user2.id,
+  game_id: game1.id,
   on_sale: true,
   description: 'blank description for david',
   price: 65
