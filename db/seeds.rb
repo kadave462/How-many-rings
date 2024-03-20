@@ -40,7 +40,7 @@ Game.create(
 Game.create(
   title: 'Gran Turismo',
   release_year: 1997,
-  description: '',
+  description: 'blank description for david',
   cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6e10.png',
   genre: 'Course',
   platform: 'PlayStation',
@@ -76,6 +76,7 @@ Offer.create(
   user_id: 2,
   game_id: 5,
   on_sale: true,
+  description: 'blank description for david',
   price: 150
 )
 
@@ -83,6 +84,7 @@ Offer.create(
   user_id: 1,
   game_id: 2,
   on_sale: true,
+  description: 'blank description for david',
   price: 130
 )
 
@@ -90,6 +92,7 @@ Offer.create(
   user_id: 3,
   game_id: 1,
   on_sale: true,
+  description: 'blank description for david',
   price: 25
 )
 
@@ -97,6 +100,7 @@ Offer.create(
   user_id: 1,
   game_id: 1,
   on_sale: true,
+  description: 'blank description for david',
   price: 55
 )
 
@@ -104,5 +108,6 @@ Offer.create(
   user_id: 2,
   game_id: 1,
   on_sale: true,
+  description: 'blank description for david',
   price: 65
 )
