@@ -1,0 +1,31 @@
+.mobile-container {
+  width: 360px;
+  margin: auto;
+}
+
+.card-game {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.card-game-infos {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 4px;
+}
+
+.card-game-infos-img {
+  padding-right: 4px;
+}
+
+.card-game-infos-tags {
+
+}
+
+.card-game-actions {
+
+}
