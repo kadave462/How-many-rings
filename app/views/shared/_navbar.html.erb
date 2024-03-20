@@ -3,34 +3,20 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710847333/test/logo_rings_paviez.png", width:"40", height:"40" %>
     <% end %>
-
-
     <%# bouton recherche %>
-
     <%= form_with method: :get do |form| %>
       <%= form.text_field :query, class: 'form-control form-control-sm form-sm me-1 rounded-4 rounded', placeholder: 'Rechercher' %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-          <li class="nav-item">
-            <%= link_to "Message", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710860343/test/f7cd9qxqr6fod0oobnnd.jpg", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <div class="dropdown-menu rounded-4" aria-labelledby="navbarDropdown">
+              <%= link_to "Ma collection", "#", class: "dropdown-item" %>
+              <%= link_to "Mes ventes", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            </div></a>
+          </li>
           </li>
         <% else %>
           <li class="nav-item">

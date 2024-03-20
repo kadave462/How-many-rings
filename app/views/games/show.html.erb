@@ -11,9 +11,9 @@
         <p class="card-text">publisher : <strong><%=@game.publisher%></strong></p>
         <p class="card-text">genre : <strong><%=@game.genre%></strong></p>
         <p class="card-text">released : <strong><%=@game.release_year%></strong></p>
-        <div class = "btn btn-danger">
-          <%= link_to "add to my collection", new_game_offer_path(@game)%>
-        </div>
+
+          <%= link_to "buy this",  new_game_offer_path(@game),class: "btn btn-primary  border rounded-pill"%>
+
     </div>
   </div>
   <div>
