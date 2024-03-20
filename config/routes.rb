@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :games do
-    resources :offers
+    resources :offers, only: [:create, :new]
   end
 
-  resources :offers
+  resources :offers, only: [:destroy, :show, :edit, :update]
 
   get 'account', to: "pages#account"
 
