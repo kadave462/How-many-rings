@@ -11,6 +11,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @offers = @game.offers
   end
 
   private

@@ -11,8 +11,18 @@
         <p class="card-text">publisher : <strong><%=@game.publisher%></strong></p>
         <p class="card-text">genre : <strong><%=@game.genre%></strong></p>
         <p class="card-text">released : <strong><%=@game.release_year%></strong></p>
+
           <%= link_to "buy this", "#",class: "btn btn-primary  border rounded-pill"%>
-        </div>
+
     </div>
+  </div>
+  <div>
+  <% @offers.each do |offer| %>
+    <ul>
+    <li>offer id is: <%= offer.id %></li>
+    <li>offer price is: <%= offer.price %></li>
+    <li>offer descritpiton is: <%= offer.description %></li>
+    </ul>
+  <% end %>
   </div>
 </div>
