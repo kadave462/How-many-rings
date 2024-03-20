@@ -92,3 +92,17 @@ Offer.create(
   on_sale: true,
   price: 25
 )
+
+Offer.create(
+  user_id: 1,
+  game_id: 1,
+  on_sale: true,
+  price: 55
+)
+
+Offer.create(
+  user_id: 2,
+  game_id: 1,
+  on_sale: true,
+  price: 65
+)
