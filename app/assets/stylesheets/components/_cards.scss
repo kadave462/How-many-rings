@@ -1,6 +1,12 @@
 .mobile-container {
   width: 360px;
   margin: auto;
+
+  & img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
 }
 
 .card-game {
@@ -10,6 +16,7 @@
   margin: 8px;
   padding: 8px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .card-game-infos {
@@ -20,17 +27,14 @@
 
 .card-game-infos-img {
   padding-right: 4px;
+
+  & img {
+    width: 100px;
+  }
 }
 
-.card-game-infos-img img {
-  width: 100px;
-  height: 150px
+.card-game-infos-tags {
+  & p {
+    margin: 0;
+  }
 }
-
-// .card-game-infos-tags {
-
-// }
-
-// .card-game-actions {
-
-// }
