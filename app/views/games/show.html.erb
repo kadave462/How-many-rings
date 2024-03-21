@@ -14,36 +14,36 @@
         <i class="fa-solid fa-coins"></i>
         Estimer mon exemplaire
       <% end %>
-      
+
     </div>
   </div>
-   
-  </div>
+</div>
+
 <div>
   <% @offers.each do |offer| %>
     <ul>
-    <li>Vendeur : <%= offer.user.username %></li>
-    <li>Prix : <%= offer.price %>€</li>
-    <li>Description : <%= offer.description %></li>
+      <li>Vendeur : <%= offer.user.username %></li>
+      <li>Prix : <%= offer.price %>€</li>
+      <li>Description : <%= offer.description %></li>
 
-    <%# Afficher les photos de l'annonce (offer) s'il y en a %>
-    <% if offer.photos.attached? %>
-      <% offer.photos.each do |photo| %>
-        <%= cl_image_tag photo.key %>
+      <%# Afficher les photos de l'annonce (offer) s'il y en a %>
+      <% if offer.photos.attached? %>
+        <% offer.photos.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <%= link_to "Voir cette annonce", ""%>
-    <%= link_to "Supprimer l'annonce", offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%>
+      <%= link_to "Voir cette annonce", ""%>
+      <%= link_to "Supprimer l'annonce", offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%>
     </ul>
-        <p>
-          <span><%= link_to "Acheter", "#"%></span>
-           <span><i class="text-primary fa-solid fa-cart-shopping"></i><%= link_to "Ajouter au panier", "#"%></span>
-           <span><i class="text-primary fa-regular fa-heart"></i><%= link_to "favoris", "#"%></span>
-        </p>
-        <p>
-          <i class="text-primary fa-solid fa-layer-group"></i> <%= link_to "collection de <strong>#{offer.user.username}</strong>".html_safe,"#"%>
-        </p>
-      </div>
-    </div>
+    <p>
+      <span><%= link_to "Acheter", "#"%></span>
+      <span><i class="text-primary fa-solid fa-cart-shopping"></i><%= link_to "Ajouter au panier", "#"%></span>
+      <span><i class="text-primary fa-regular fa-heart"></i><%= link_to "favoris", "#"%></span>
+    </p>
+    <p>
+      <i class="text-primary fa-solid fa-layer-group"></i> <%= link_to "collection de <strong>#{offer.user.username}</strong>".html_safe,"#"%>
+    </p>
+
   <% end %>
+</div>
