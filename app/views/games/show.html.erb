@@ -9,12 +9,15 @@
       <p>publisher : <strong><%=@game.publisher%></strong></p>
       <p>genre : <strong><%=@game.genre%></strong></p>
       <p>released : <strong><%=@game.release_year%></strong></p>
+
+      <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
+        <i class="fa-solid fa-coins"></i>
+        Estimer mon exemplaire
+      <% end %>
+      
     </div>
   </div>
-   <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
-      <i class="fa-solid fa-coins"></i>
-      Estimer mon exemplaire
-    <% end %>
+   
   </div>
 <div>
   <% @offers.each do |offer| %>
@@ -33,4 +36,14 @@
     <%= link_to "Voir cette annonce", ""%>
     <%= link_to "Supprimer l'annonce", offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%>
     </ul>
+        <p>
+          <span><%= link_to "Acheter", "#"%></span>
+           <span><i class="text-primary fa-solid fa-cart-shopping"></i><%= link_to "Ajouter au panier", "#"%></span>
+           <span><i class="text-primary fa-regular fa-heart"></i><%= link_to "favoris", "#"%></span>
+        </p>
+        <p>
+          <i class="text-primary fa-solid fa-layer-group"></i> <%= link_to "collection de <strong>#{offer.user.username}</strong>".html_safe,"#"%>
+        </p>
+      </div>
+    </div>
   <% end %>
