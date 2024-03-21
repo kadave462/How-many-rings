@@ -37,7 +37,7 @@
       <%= link_to "Supprimer l'annonce", offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%>
     </ul>
     <p>
-      <span><%= link_to "Acheter", "#"%></span>
+      <span><%= link_to "Acheter",offer_path(@game)%></span>
       <span><i class="text-primary fa-solid fa-cart-shopping"></i><%= link_to "Ajouter au panier", "#"%></span>
       <span><i class="text-primary fa-regular fa-heart"></i><%= link_to "favoris", "#"%></span>
     </p>
