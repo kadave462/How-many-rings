@@ -38,3 +38,17 @@
     margin: 0;
   }
 }
+
+.card-offer-infos {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: white;
+
+  & p {
+    margin: 0;
+  }
+}
