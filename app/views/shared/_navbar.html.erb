@@ -1,29 +1,31 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon rounded-4 rounded-top-0 border border-2 border-black-subtitle" style="background-color: #ffffff;">
+<%# Nav barre %>
+<div class="navbar navbar-center rounded-4 rounded-top-0 border border-2 border-black-subtitle " style="background-color: #ffffff;width: 390px;margin: auto;">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710847333/test/logo_rings_paviez.png", width:"40", height:"40" %>
     <% end %>
-    <%# bouton recherche %>
-    <%= form_with method: :get do |form| %>
-      <%= form.text_field :query, class: 'form-control form-control-sm form-sm me-1 rounded-4 rounded', placeholder: 'Rechercher' %>
-    <% end %>
 
+    <%# bouton recherche %>
+       <div class="position-sticky w-50 ">
+      <%= form_with method: :get do |form| %>
+      <%= form.text_field :query, class: 'form-control position-relative rounded-4 rounded', placeholder: 'Rechercher' %>
+    </div>
+
+        <%# avatar %>
         <% if user_signed_in? %>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710860343/test/f7cd9qxqr6fod0oobnnd.jpg", class: "avatar", alt: "dropdown menu" %>
-            <div class="dropdown-menu rounded-4" aria-labelledby="navbarDropdown">
-              <%= link_to "Ma collection", "#", class: "dropdown-item" %>
-              <%= link_to "Mes ventes", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+
+            <%# sous menu de l'avatar %>
+            <div class="dropdown-menu rounded-4 col-12 text-center" style="background-color: #ffffff;width: 390px;" >
+              <%= link_to "Ma collection", "#",class:" text-decoration-none text-dark"%>
+              <%= link_to "Mes ventes", "#",class:"text-decoration-none text-dark"%>
+              <%= link_to "Log out", destroy_user_session_path, class:"text-decoration-none text-dark", data: {turbo_method: :delete}%>
             </div></a>
-          </li>
-          </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-          </li>
+        <%# menu se connecter %>
+      <%= link_to "Se connecter", new_user_session_path, class: "nav-link position-relative top-40 end-0" %>
+    <% end %>
         <% end %>
-      </ul>
     </div>
   </div>
-</div>
