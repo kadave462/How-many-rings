@@ -11,19 +11,42 @@
     </div>
   </div>
 
-<div>
+<div class="card-game">
 
   <p><strong>Décrivez l'état de vôtre jeu :</p></strong>
 
-  <div class="card-conditions">
-    <%= simple_form_for [@game, @offer], url: game_offers_path do |f| %>
-      <%= f.input :box_condition, collection: Offer::GRADES, label: "Boîte :" %>
-      <%= f.input :cover_condition, collection: Offer::GRADES, label: "Jaquette :" %>
-      <%= f.input :manual_condition, collection: Offer::GRADES, label: "Manuel :" %>
-      <%= f.input :media_condition, collection: Offer::GRADES, label: "Jeu :" %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos : (facultatif)" %>
-      <%= f.button :submit, "Obtenir l'estimation", class: "btn btn-primary" %>
+  <div class="card-game-estimation" data-controller="estimate" data-estimate-price-value="<%= @game.average_price %>">
+
+    <%= form_with model: [@game, @offer] do |f| %>
+
+        <%= f.label :box_condition, "Boîte :" %>
+        <%= f.select :box_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "box" } } %>
+        <br>
+        <%= f.label :cover_condition, "Jaquette :" %>
+        <%= f.select :cover_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "cover" } } %>
+        <br>
+        <%= f.label :manual_condition, "Manuel :" %>
+        <%= f.select :manual_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "manual" } } %>
+        <br>
+        <%= f.label :media_condition, "Jeu :" %>
+        <%= f.select :media_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "game" } } %>
+        <br>
+        <br>
+
+        <span data-action="click->estimate#toggleAddButton" class='btn btn-primary d-block'>Estimer</span>
+
+        <div data-estimate-target="addButton" class="d-none">
+          <br>
+          <%= f.label :photos, "Photos : (facultatif)" %>
+          <%= f.file_field :photos, multiple: true %>
+          <br>
+          <%= f.label :price, "Prix estimé :" %>
+          <%= f.text_field :price, { required: true, data: { estimate_target: "price" } } %>
+
+          <%= f.submit "Ajouter", class: "btn btn-primary" %>
+        </div>
     <% end %>
+
   </div>
 
 </div>
