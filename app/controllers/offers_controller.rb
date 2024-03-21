@@ -1,11 +1,28 @@
 class OffersController < ApplicationController
   def show
+    @offer = Offer.find(params[:id])
+    @game = @offer.game
   end
 
   def new
     @game = Game.find(params[:game_id])
     @offer = Offer.new
   end
+
+  def edit
+    @offer = Offer.find(params[:id])
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+    @offer.update(offer_params)
+    if @offer.save
+      redirect_to offer_path(@offer)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
 
   def create
     @offer = Offer.new(offer_params)
