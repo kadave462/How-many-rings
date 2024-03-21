@@ -1,46 +1,29 @@
-<div class='card-game'>
-    <div class='card-game-infos'>
-      <div class='card-game-infos-img'>
+<div class="card-game">
+    <div class="card-game-infos">
+      <div class="card-game-infos-img">
         <%= image_tag @game.cover %>
       </div>
-      <div class='card-game-infos-tags'>
+      <div class="card-game-infos-tags">
         <h5><strong><%= @game.title %></h5></strong>
         <%= @game.platform %><br>
         <em><%= @game.publisher %></em><br>
       </div>
     </div>
-
-
-
   </div>
 
 <div>
 
   <p><strong>Décrivez l'état de vôtre jeu :</p></strong>
 
-  <div class="tab-condition">
-
-    <div class="tab-condition-box">
-      Boîte
-      <%= simple_form_for [@game, @offer], url: game_offers_path do |f| %>
-        <%= f.collection_radio_buttons :box_condition, [['Test1', 'Test11'] ,['Test2', 'Test22'], ['Test3', 'Test33'], ['Test4', 'Test44']], :first, :last %>
-
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
-    </div>
-
-    <div class="tab-condition-media">
-      Média
-    </div>
-
-    <div class="tab-condition-manual">
-      Manuel
-    </div>
-
-    <div class="tab-condition-cover">
-      Jaquette
-    </div>
-
+  <div class="card-conditions">
+    <%= simple_form_for [@game, @offer], url: game_offers_path do |f| %>
+      <%= f.input :box_condition, collection: Offer::GRADES, label: "Boîte :" %>
+      <%= f.input :cover_condition, collection: Offer::GRADES, label: "Jaquette :" %>
+      <%= f.input :manual_condition, collection: Offer::GRADES, label: "Manuel :" %>
+      <%= f.input :media_condition, collection: Offer::GRADES, label: "Jeu :" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos : (facultatif)" %>
+      <%= f.button :submit, "Obtenir l'estimation", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
 </div>

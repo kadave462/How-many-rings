@@ -1,33 +1,41 @@
-<div class="mobile-container">
-
-  <div class="row my-3">
-    <div class="col-4">
-      <%= image_tag ("#{@game.cover}"), style:"max-width: 100%"%>
+<div class="card-game">
+  <div class='card-game-infos'>
+    <div class='card-game-infos-img'>
+      <%= image_tag @game.cover %>
     </div>
+    <div class='card-game-infos-tags'>
+      <h5><strong><%= @game.title %></strong></h5>
+      <p>console : <strong><%=@game.platform%></strong></p>
+      <p>publisher : <strong><%=@game.publisher%></strong></p>
+      <p>genre : <strong><%=@game.genre%></strong></p>
+      <p>released : <strong><%=@game.release_year%></strong></p>
 
-    <div class="col-8">
-        <h5 class="card-title"><strong><%= @game.title %></strong></h5>
-        <p class="card-text">console : <strong><%=@game.platform%></strong></p>
-        <p class="card-text">publisher : <strong><%=@game.publisher%></strong></p>
-        <p class="card-text">genre : <strong><%=@game.genre%></strong></p>
-        <p class="card-text">released : <strong><%=@game.release_year%></strong></p>
-
-          <%= link_to "Estimer mon exemplaire",  new_game_offer_path(@game),class: "btn btn-primary  border rounded-pill"%>
-
+      <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
+        <i class="fa-solid fa-coins"></i>
+        Estimer mon exemplaire
+      <% end %>
+      
     </div>
   </div>
-  <div>
+   
+  </div>
+<div>
   <% @offers.each do |offer| %>
-    <div class= "card m-2">
-      <div class="row">
-        <div class="col-3">
-          <%= image_tag ("#{offer.game.cover}"), style:"max-width: 100%"%>
-        </div>
-        <div class="col-9">
-          <p>par <strong><%= link_to "#{offer.user.username}","#" %></strong></p>
-          <p>prix: <strong> <%= offer.price %> Euros</strong></p>
-          <p><strong><%= offer.description %></strong></p>
-        </div>
+    <ul>
+    <li>Vendeur : <%= offer.user.username %></li>
+    <li>Prix : <%= offer.price %>€</li>
+    <li>Description : <%= offer.description %></li>
+
+    <%# Afficher les photos de l'annonce (offer) s'il y en a %>
+    <% if offer.photos.attached? %>
+      <% offer.photos.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end %>
+    <% end %>
+
+    <%= link_to "Voir cette annonce", ""%>
+    <%= link_to "Supprimer l'annonce", offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%>
+    </ul>
         <p>
           <span><%= link_to "Acheter", "#"%></span>
            <span><i class="text-primary fa-solid fa-cart-shopping"></i><%= link_to "Ajouter au panier", "#"%></span>
@@ -39,5 +47,3 @@
       </div>
     </div>
   <% end %>
-  </div>
-</div>

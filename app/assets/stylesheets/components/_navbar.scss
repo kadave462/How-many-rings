@@ -1,3 +1,8 @@
+.navbar {
+  position: sticky;
+  top: 0;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -6,4 +11,3 @@
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-
