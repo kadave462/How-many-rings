@@ -17,10 +17,11 @@
             <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710860343/test/f7cd9qxqr6fod0oobnnd.jpg", class: "avatar", alt: "dropdown menu" %>
 
             <%# sous menu de l'avatar %>
-            <div class="dropdown-menu rounded-4 col-12 text-center" style="background-color: #ffffff;width: 390px;" >
-              <%= link_to "Ma collection", "#",class:" text-decoration-none text-dark"%>
-              <%= link_to "Mes ventes", "#",class:"text-decoration-none text-dark"%>
-              <%= link_to "Log out", destroy_user_session_path, class:"text-decoration-none text-dark", data: {turbo_method: :delete}%>
+            <div class="dropdown-menu  rounded-4 col-12 text-center" style="background-color: #ffffff;width: 390px;">
+              <p><%= link_to "Compte", "#",class:" text-decoration-none text-dark"%></p>
+              <p><%= link_to "Collection", "#",class:" text-decoration-none text-dark"%></p>
+              <p><%= link_to "Ventes", "#",class:"text-decoration-none text-dark"%></p>
+              <p><%= link_to "Log out", destroy_user_session_path, class:"text-decoration-none text-dark", data: {turbo_method: :delete}%></p>
             </div></a>
         <% else %>
         <%# menu se connecter %>
@@ -29,3 +30,5 @@
         <% end %>
     </div>
   </div>
+
+<p></p>
