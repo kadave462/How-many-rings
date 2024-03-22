@@ -1,0 +1,42 @@
+<br>
+<h5>Collection de <strong><%="#{@user.username}"%></strong></h5>
+<br>
+<% @useroffers.each do |offer| %>
+  <div class="card-game" , style="display: flex !important; flex-direction: row !important;">
+    <div class = "card-game-infos-img">
+      <p>
+        <% if offer.photos.attached? %>
+              <% offer.photos.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+              <% end %>
+        <%else%>
+            <%= image_tag offer.game.cover %>
+        <% end %>
+      </p>
+    </div>
+
+    <div class="card-game-infos-tags">
+      <h5>
+        <strong><%= offer.game.title%></strong>
+      </h5>
+
+      <p>
+        <br>
+       Anne: <strong><%= offer.game.release_year %></strong>
+        <br>
+      Genre: <strong><%= offer.game.genre %></strong>
+        <br>
+      Prix: <strong><%= offer.price%>€ </strong>
+      </p>
+
+      <br>
+        <%if offer.user != current_user %>
+          <%= link_to "infos", offer_path(offer)%></span>
+        <%else%>
+          <%= link_to "Modifier mon annonce", edit_offer_path(@offer)%>
+          <%= link_to "suprimer l annonce",offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
+        <%end%>
+      </p>
+    </div>
+  </div>
+<% end %>
