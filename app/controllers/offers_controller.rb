@@ -32,9 +32,11 @@ class OffersController < ApplicationController
     @offer.description = 'Petit test amical'
 
     if @offer.save
-      redirect_to offer_path(@offer)
+      flash[:notice] = "bravo"
+      redirect_to "/"
     else
-      render :new, status: :unprocessable_entity
+      redirect_to new_game_offer_path(game: @game)
+      flash[:alert] = "erreur"
     end
   end
 

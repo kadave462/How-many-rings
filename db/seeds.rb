@@ -18,7 +18,8 @@ game1 = Game.create!(
   cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co66qs.png',
   genre: 'Action',
   platform: 'PlayStation 5',
-  publisher: 'Rockstar Games'
+  publisher: 'Rockstar Games',
+  average_price: 30,
 )
 
 game2 = Game.create!(
@@ -28,7 +29,8 @@ game2 = Game.create!(
   cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1ups.png',
   genre: 'Plate-forme',
   platform: 'Mega Drive',
-  publisher: 'SEGA'
+  publisher: 'SEGA',
+  average_price: 180
 )
 
 game3 = Game.create!(
@@ -38,7 +40,8 @@ game3 = Game.create!(
   cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6qqa.png',
   genre: 'Sport',
   platform: 'Xbox Series X',
-  publisher: 'Electronic Arts'
+  publisher: 'Electronic Arts',
+  average_price: 50
 )
 
 game4 = Game.create!(
@@ -48,7 +51,8 @@ game4 = Game.create!(
   cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6e10.png',
   genre: 'Course',
   platform: 'PlayStation',
-  publisher: 'Sony'
+  publisher: 'Sony',
+  average_price: 40
 )
 
 game5 = Game.create!(
@@ -58,11 +62,13 @@ game5 = Game.create!(
   cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co3nnx.png',
   genre: 'Aventure',
   platform: 'Nintendo 64',
-  publisher: 'Nintendo'
+  publisher: 'Nintendo',
+  average_price: 200
+
 )
 
 user1 = User.create!(
-  username: 'julien',
+  username: 'JuJu',
   email: 'julien@email.com',
   password: 'julien'
 )
@@ -83,38 +89,59 @@ Offer.create!(
   user_id: user1.id,
   game_id: game5.id,
   on_sale: true,
-  description: 'blank description for david',
-  price: 150
+  description: 'Notice absente',
+  price: 150,
+  media_condition: 'B',
+  cover_condition: 'A',
+  box_condition: 'A',
+  manual_condition: 'Z'
 )
 
 Offer.create!(
   user_id: user1.id,
   game_id: game2.id,
   on_sale: true,
-  description: 'blank description for david',
-  price: 130
+  description: 'Notice abimée',
+  price: 130,
+  media_condition: 'A',
+  cover_condition: 'B',
+  box_condition: 'A',
+  manual_condition: 'C'
 )
 
 Offer.create!(
   user_id: user2.id,
   game_id: game1.id,
   on_sale: true,
-  description: 'blank description for david',
-  price: 25
+  description: 'Pas de jaquette',
+  price: 25,
+  media_condition: 'C',
+  cover_condition: 'Z',
+  box_condition: 'B',
+  manual_condition: 'A'
 )
 
 Offer.create!(
-  user_id: user1.id,
-  game_id: game1.id,
+  user_id: user3.id,
+  game_id: game4.id,
   on_sale: true,
-  description: 'blank description for david',
-  price: 55
+  description: 'Bon état général',
+  price: 55,
+  media_condition: 'B',
+  cover_condition: 'A',
+  box_condition: 'A',
+  manual_condition: 'C'
 )
 
 Offer.create!(
   user_id: user2.id,
-  game_id: game1.id,
+  game_id: game3.id,
   on_sale: true,
-  description: 'blank description for david',
-  price: 65
+  description: 'Jeu abîmé mais reste nickel',
+  price: 65,
+  media_condition: 'C',
+  cover_condition: 'A',
+  box_condition: 'A',
+  manual_condition: 'B'
 )
+puts 'Seeds OK.'
