@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :offers, only: [:create, :new]
   end
 
-  resources :offers, only: [:destroy, :show, :edit, :update]
+  resources :offers, only: [:index, :destroy, :show, :edit, :update]
 
   get 'account', to: "pages#account"
 

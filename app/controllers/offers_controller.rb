@@ -1,6 +1,12 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show]
 
+  def index
+    offers = Offer.all
+    @user = User.find(params[:format])
+    @useroffers = @user.offers
+  end
+
   def show
     @offer = Offer.find(params[:id])
     @game = @offer.game
