@@ -1,4 +1,12 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show]
+
+  def index
+    offers = Offer.all
+    @user = User.find(params[:format])
+    @useroffers = @user.offers
+  end
+
   def show
     @offer = Offer.find(params[:id])
     @game = @offer.game
@@ -28,15 +36,13 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     @offer.game = Game.find(params[:game_id])
-    @offer.on_sale = true
-    @offer.description = 'Petit test amical'
 
     if @offer.save
-      flash[:notice] = "bravo"
-      redirect_to "/"
+      flash[:notice] = "Jeu ajouté !"
+      redirect_to offer_path(@offer)
     else
+      flash[:alert] = "Une erreur est survenue."
       redirect_to new_game_offer_path(game: @game)
-      flash[:alert] = "erreur"
     end
   end
 
@@ -54,6 +60,9 @@ class OffersController < ApplicationController
       :cover_condition,
       :manual_condition,
       :media_condition,
+      :price,
+      :on_sale,
+      :description,
       photos: []
     )
   end

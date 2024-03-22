@@ -89,12 +89,12 @@ Offer.create!(
   user_id: user1.id,
   game_id: game5.id,
   on_sale: true,
-  description: 'Notice absente',
+  description: 'Notice absente, boîte pas ouf',
   price: 150,
-  media_condition: 'B',
-  cover_condition: 'A',
-  box_condition: 'A',
-  manual_condition: 'Z'
+  media_condition: 'Bon état',
+  cover_condition: 'Très bon état',
+  box_condition: 'Très bon état',
+  manual_condition: 'Absent'
 )
 
 Offer.create!(
@@ -103,10 +103,10 @@ Offer.create!(
   on_sale: true,
   description: 'Notice abimée',
   price: 130,
-  media_condition: 'A',
-  cover_condition: 'B',
-  box_condition: 'A',
-  manual_condition: 'C'
+  media_condition: 'Très bon état',
+  cover_condition: 'Bon état',
+  box_condition: 'Très bon état',
+  manual_condition: 'Mauvais état'
 )
 
 Offer.create!(
@@ -115,10 +115,10 @@ Offer.create!(
   on_sale: true,
   description: 'Pas de jaquette',
   price: 25,
-  media_condition: 'C',
-  cover_condition: 'Z',
-  box_condition: 'B',
-  manual_condition: 'A'
+  media_condition: 'Mauvais état',
+  cover_condition: 'Absent',
+  box_condition: 'Bon état',
+  manual_condition: 'Très bon état'
 )
 
 Offer.create!(
@@ -127,21 +127,21 @@ Offer.create!(
   on_sale: true,
   description: 'Bon état général',
   price: 55,
-  media_condition: 'B',
-  cover_condition: 'A',
-  box_condition: 'A',
-  manual_condition: 'C'
+  media_condition: 'Bon état',
+  cover_condition: 'Très bon état',
+  box_condition: 'Très bon état',
+  manual_condition: 'Mauvais état'
 )
 
 Offer.create!(
   user_id: user2.id,
   game_id: game3.id,
   on_sale: true,
-  description: 'Jeu abîmé mais reste nickel',
+  description: 'Jeu abîmé mais le reste est nickel',
   price: 65,
-  media_condition: 'C',
-  cover_condition: 'A',
-  box_condition: 'A',
-  manual_condition: 'B'
+  media_condition: 'Mauvais état',
+  cover_condition: 'Très bon état',
+  box_condition: 'Très bon état',
+  manual_condition: 'Bon état'
 )
 puts 'Seeds OK.'

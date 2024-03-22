@@ -21,7 +21,7 @@
   <%# Carte du vendeur ayant le jeu %>
   <% @offers.each do |offer| %>
     <div class="card-offer-infos">
-      <p>Vendeur :<strong><%= link_to "#{offer.user.username}".html_safe, class: "link-dark" do %>
+      <p>Vendeur :<strong><%= link_to offers_path(offer.user.id), class: "link-dark" do %>
           <%= offer.user.username %></strong><% end %></p>
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>

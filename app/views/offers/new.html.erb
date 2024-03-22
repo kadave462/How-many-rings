@@ -6,7 +6,8 @@
       <div class="card-game-infos-tags">
         <h5><strong><%= @game.title %></h5></strong>
         <%= @game.platform %><br>
-        <em><%= @game.publisher %></em><br>
+        <em><%= @game.publisher %></em><br><br>
+        <p>Prix moyen : <strong><%= @game.average_price.round(2) %>€</strong></p>
       </div>
     </div>
   </div>
@@ -20,31 +21,46 @@
     <%= form_with model: [@game, @offer] do |f| %>
 
         <%= f.label :box_condition, "Boîte :" %>
-        <%= f.select :box_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "box" } } %>
+        <%= f.select :box_condition, Offer::CONDITIONS, {}, { required: true, data: { estimate_target: "box" } } %>
         <br>
         <%= f.label :cover_condition, "Jaquette :" %>
-        <%= f.select :cover_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "cover" } } %>
+        <%= f.select :cover_condition, Offer::CONDITIONS, {}, { required: true, data: { estimate_target: "cover" } } %>
         <br>
         <%= f.label :manual_condition, "Manuel :" %>
-        <%= f.select :manual_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "manual" } } %>
+        <%= f.select :manual_condition, Offer::CONDITIONS, {}, { required: true, data: { estimate_target: "manual" } } %>
         <br>
         <%= f.label :media_condition, "Jeu :" %>
-        <%= f.select :media_condition, Offer::GRADES, {}, { required: true, data: { estimate_target: "game" } } %>
-        <br>
-        <br>
+        <%= f.select :media_condition, Offer::CONDITIONS, {}, { required: true, data: { estimate_target: "game" } } %>
 
-        <span data-action="click->estimate#toggleAddButton" class='btn btn-primary d-block'>Estimer</span>
+        <br><br>
 
+        <span data-action="click->estimate#displaySubmitArea" class='btn btn-primary d-block'>Estimer</span>
+
+        <%# Zone masquée par défaut mais qui s'affiche au clic sur "Estimer"%>
         <div data-estimate-target="addButton" class="d-none">
           <br>
+          <p>Prix estimée : <strong><span data-estimate-target="estimatedPrice"></span>€</p></strong>
+          <%= f.label :price, "Votre prix :" %>
+          <%= f.text_field :price, { required: true, data: { estimate_target: "price" } } %>€
+          <br><br>
+
+          <%= f.label :on_sale, "Mettre en vente :" %>
+          <%= f.radio_button :on_sale, true, required: true %>
+          <%= f.label :on_sale, "Oui" %>
+          <%= f.radio_button :on_sale, false, required: true %>
+          <%= f.label :on_sale, "Non" %>
+          <br><br>
           <%= f.label :photos, "Photos : (facultatif)" %>
           <%= f.file_field :photos, multiple: true %>
+          <br><br>
+          <%= f.label :description, "Description :" %>
           <br>
-          <%= f.label :price, "Prix estimé :" %>
-          <%= f.text_field :price, { required: true, data: { estimate_target: "price" } } %>
-
-          <%= f.submit "Ajouter", class: "btn btn-primary" %>
+          <%= f.text_area :description, required: true %>
+          <br><br>
+          <%= f.submit "Ajouter à ma collection", class: "btn btn-primary w-100" %>
         </div>
+        <%# Fin de la zone masquée %>
+
     <% end %>
 
   </div>
