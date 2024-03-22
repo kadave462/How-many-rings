@@ -2,9 +2,7 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show]
 
   def index
-    offers = Offer.all
-    @user = User.find(params[:format])
-    @useroffers = @user.offers
+    @user = User.find(params[:user_id])
   end
 
   def show

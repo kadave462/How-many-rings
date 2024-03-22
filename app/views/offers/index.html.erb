@@ -1,7 +1,7 @@
 <br>
-<h5>Collection de <strong><%="#{@user.username}"%></strong></h5>
+<h5>Collection de <strong><%= @user.username %></strong></h5>
 <br>
-<% @useroffers.each do |offer| %>
+<% @user.offers.each do |offer| %>
   <div class="card-game" , style="display: flex !important; flex-direction: row !important;">
     <div class = "card-game-infos-img">
       <p>
@@ -33,8 +33,8 @@
         <%if offer.user != current_user %>
           <%= link_to "infos", offer_path(offer)%></span>
         <%else%>
-          <%= link_to "Modifier mon annonce", edit_offer_path(@offer)%>
-          <%= link_to "suprimer l annonce",offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
+          <%= link_to "Modifier mon annonce", edit_offer_path(offer)%>
+          <%= link_to "suprimer l'annonce",offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
         <%end%>
       </p>
     </div>
