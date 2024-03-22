@@ -18,28 +18,24 @@
       <% end %>
 </div>
 
+  <%# Carte du vendeur ayant le jeu %>
+  <% @offers.each do |offer| %>
+    <div class="card-offer-infos">
+      <p>Vendeur :<strong><%= link_to offers_path(offer.user.id), class: "link-dark" do %>
+          <%= offer.user.username %></strong><% end %></p>
+      <p>Prix : <%= offer.price %>€</p>
+      <p>Description : <%= offer.description %></p>
+      <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
+      <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "favoris", "#"%></p>
+    </div>
 
-<% @offers.each do |offer| %>
-  <div class="card-offer-infos">
-    <p>Vendeur : <%= offer.user.username%></p>
-    <p>Prix : <%= offer.price %>€</p>
-    <p>Description : <%= offer.description %></p>
-    <br><p><i class="text-primary fa-solid fa-eye"></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
-    <p><i class="text-primary fa-solid fa-trash"></i> <%= link_to "Supprimer l'annonce", offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></p>
-    <p><i class="text-primary fa-solid fa-cart-shopping"></i> <%= link_to "Ajouter au panier", "#"%></p>
-    <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "favoris", "#"%></p>
-    <p><i class="text-primary fa-solid fa-layer-group"></i>
-       <%= link_to offers_path(offer.user.id) do %>
-        collection de <strong><%= offer.user.username %></strong>
-       <% end %>
-    </p>
-  </div>
-<% end %>
+ <%# Afficher les photos de l'annonce (offer) s'il y en a %>
+    <% if offer.photos.attached? %>
+      <% offer.photos.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end %>
+    <% end %>
 
-<%# Afficher les photos de l'annonce (offer) s'il y en a %>
-    <%# <% if offer.photos.attached? %>
-      <%# <% offer.photos.each do |photo| %>
-        <%# <%= cl_image_tag photo.key %>
-      <%# <% end %>
-    <%# <% end %>
-  <%# <% end %>
+
+  <% end %>
+</div>
