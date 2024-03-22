@@ -1,4 +1,9 @@
 class OffersController < ApplicationController
+  def index
+    offers = Offer.all
+    @user = User.find(params[:format])
+    @useroffers = @user.offers
+  end
   def show
     @offer = Offer.find(params[:id])
     @game = @offer.game
