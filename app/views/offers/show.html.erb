@@ -36,7 +36,7 @@
     <p>Nom : <strong><%=@offer.user.username %></strong></p>
     <p>Description: <strong><%=@offer.description%></strong></p>
     <%if @offer.user == current_user %>
-      <%= link_to "Edit my car", edit_offer_path(@offer)%>
+      <%= link_to "Modifier mon annonce", edit_offer_path(@offer)%>
       <%= link_to "suprimer l annonce",offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
     <%end%>
   </div>
