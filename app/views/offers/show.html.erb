@@ -1,0 +1,43 @@
+<div class='card-game'>
+  <div class="card-game-infos">
+    <div class ="card-game-infos-img">
+      <% if @offer.photos.attached? %>
+        <% @offer.photos.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end %>
+      <% else %>
+        <%= image_tag @game.cover %></p>
+      <% end %>
+    </div>
+    <div class = "card-game-infos-tags">
+      <h5><strong><%= @game.title %></strong></h5>
+      <p>Possesseur :<strong><%=@offer.user.username %></strong></p>
+      <p>Genre : <strong><%= @game.genre %></strong></p>
+      <p>Plateforme :<strong><%= @game.platform %></strong></p>
+      <p>Editeur : <strong><%= @game.publisher %></strong></p>
+    </div>
+  </div>
+
+  <div class="card-game">
+    <h2 class="text-center">Mon jeu :</h2>
+    <p>Etat : <strong><%=@offer.media_condition %></strong></p>
+    <p>Couverture: <strong><%=@offer.cover_condition %></strong></p>
+    <p>Boite: <strong><%=@offer.box_condition %></strong></p>
+    <p>Prix: <strong><%=@offer.price %></strong></p>
+    <%= link_to "Acheter", offer_path(@offer)%></span>
+    <%if @offer.user == current_user %>
+      <%= link_to "Edit my car", edit_offer_path(@offer)%>
+      <%= link_to "suprimer l annonce",offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
+    <%end%>
+  </div>
+
+  <div class="card-game">
+    <h2 class="text-center">Le vendeur :</h2>
+    <p>Nom : <strong><%=@offer.user.username %></strong></p>
+    <p>Description: <strong><%=@offer.description%></strong></p>
+    <%if @offer.user == current_user %>
+      <%= link_to "Edit my car", edit_offer_path(@offer)%>
+      <%= link_to "suprimer l annonce",offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
+    <%end%>
+  </div>
+</div>
