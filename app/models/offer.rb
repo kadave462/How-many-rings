@@ -8,6 +8,7 @@ class Offer < ApplicationRecord
   validates :cover_condition, presence: true
   validates :manual_condition, presence: true
   validates :media_condition, presence: true
+  validates :description, presence: true
   # validates :game_id, uniqueness: { scope: :user_id, message: "Vous avez déjà ce jeu dans votre collection." }
 
   CONDITIONS = ['Très bon état', 'Bon état', 'Mauvais état', 'Absent']
