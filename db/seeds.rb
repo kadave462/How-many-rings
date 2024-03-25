@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Favori.destroy_all
 Offer.destroy_all
 Game.destroy_all
 User.destroy_all
@@ -64,7 +66,6 @@ game5 = Game.create!(
   platform: 'Nintendo 64',
   publisher: 'Nintendo',
   average_price: 200
-
 )
 
 user1 = User.create!(
@@ -85,7 +86,7 @@ user3 = User.create!(
   password: 'davidk'
 )
 
-Offer.create!(
+offer1 = Offer.create!(
   user_id: user1.id,
   game_id: game5.id,
   on_sale: true,
@@ -97,7 +98,7 @@ Offer.create!(
   manual_condition: 'Absent'
 )
 
-Offer.create!(
+offer2 = Offer.create!(
   user_id: user1.id,
   game_id: game2.id,
   on_sale: true,
@@ -109,7 +110,7 @@ Offer.create!(
   manual_condition: 'Mauvais état'
 )
 
-Offer.create!(
+offer3 = Offer.create!(
   user_id: user2.id,
   game_id: game1.id,
   on_sale: true,
@@ -121,7 +122,7 @@ Offer.create!(
   manual_condition: 'Très bon état'
 )
 
-Offer.create!(
+offer4 = Offer.create!(
   user_id: user3.id,
   game_id: game4.id,
   on_sale: true,
@@ -133,7 +134,7 @@ Offer.create!(
   manual_condition: 'Mauvais état'
 )
 
-Offer.create!(
+offer5 = Offer.create!(
   user_id: user2.id,
   game_id: game3.id,
   on_sale: true,
@@ -144,6 +145,10 @@ Offer.create!(
   box_condition: 'Très bon état',
   manual_condition: 'Bon état'
 )
+
+Favori.create!(
+  user_id: user2.id,
+  offer_id: offer1.id
 
 Game.create!(
   title: "Yoshi's Story",

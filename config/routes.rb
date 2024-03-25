@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favoris/new'
   devise_for :users
   root to: "games#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :offers, only: [:index, :destroy, :show, :edit, :update]
+
+  resources :favoris, only: [:index, :create, :new, :show,]
 
   get 'account', to: "pages#account"
 

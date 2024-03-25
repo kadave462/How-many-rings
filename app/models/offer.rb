@@ -3,6 +3,7 @@ class Offer < ApplicationRecord
   belongs_to :game
 
   has_many_attached :photos
+  has_many :favoris
 
   validates :box_condition, presence: true
   validates :cover_condition, presence: true

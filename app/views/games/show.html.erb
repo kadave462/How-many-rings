@@ -12,11 +12,10 @@
       <p>released : <strong><%=@game.release_year%></strong></p>
     </div>
   </div>
-      <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
-        <i class="fa-solid fa-coins"></i>
-        Estimer mon exemplaire
-      <% end %>
-</div>
+  <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
+    <i class="fa-solid fa-coins"></i>
+    Estimer mon exemplaire
+  <% end %>
 
   <%# Carte du vendeur ayant le jeu %>
   <% @offers.each do |offer| %>
@@ -26,6 +25,6 @@
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>
       <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
-      <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "Ajouter a mes favoris", "#"%></p>
+      <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "Ajouter a mes favoris",favoris_path(game_id:@game),data: {turbo_method:"POST"} %></p>
     </div>
   <% end %>

@@ -1,0 +1,9 @@
+<%# Carte du jeu %>
+<div class="card-game">
+  <% @favoris.each do |favori| %>
+    <div class="card-offer-infos">
+      <p>Vendeur :<strong><%= favori.user.username %></p>
+      <p>titre : <%= favori.game.title%></p>
+    </div>
+  <% end %>
+</div>
