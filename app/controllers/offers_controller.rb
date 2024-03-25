@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
     @user = User.find(params[:user_id])
@@ -13,20 +13,6 @@ class OffersController < ApplicationController
   def new
     @game = Game.find(params[:game_id])
     @offer = Offer.new
-  end
-
-  def edit
-    @offer = Offer.find(params[:id])
-  end
-
-  def update
-    @offer = Offer.find(params[:id])
-    @offer.update(offer_params)
-    if @offer.save
-      redirect_to offer_path(@offer)
-    else
-      render :edit, status: :unprocessable_entity
-    end
   end
 
   def create
@@ -43,10 +29,24 @@ class OffersController < ApplicationController
     end
   end
 
+  def edit
+    @offer = Offer.find(params[:id])
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+    @offer.update(offer_params)
+    if @offer.save
+      redirect_to offer_path(@offer)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
-    redirect_to game_path(@offer.game), status: :see_other
+    redirect_to offers_path(user_id: current_user), status: :see_other
   end
 
   private
