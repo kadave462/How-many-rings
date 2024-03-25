@@ -34,7 +34,7 @@
 
   <div class="card-game">
     <h2 class="text-center">Le vendeur :</h2>
-    <p>Nom : <strong><%=link_to "#{@offer.user.username}",offers_path(@offer.user.id)%></strong></p>
+    <p>Nom : <strong><%=link_to @offer.user.username ,offers_path(user_id: @offer.user.id)%></strong></p>
     <p>Description: <strong><%=@offer.description%></strong></p>
   </div>
 </div>
