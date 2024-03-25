@@ -1,9 +1,9 @@
 <%# Carte du jeu %>
 <div class="card-game">
   <div class='card-game-infos'>
-      <div class='card-game-infos-img'>
-        <%= image_tag @game.cover %>
-      </div>
+    <div class='card-game-infos-img'>
+      <%= image_tag @game.cover %>
+    </div>
     <div class='card-game-infos-tags'>
       <h5><strong><%= @game.title %></strong></h5>
       <p>console : <strong><%=@game.platform%></strong></p>
@@ -29,4 +29,3 @@
       <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "favoris", "#"%></p>
     </div>
   <% end %>
-</div>

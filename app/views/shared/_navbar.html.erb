@@ -19,13 +19,13 @@
 
       <%# sous menu de l'avatar %>
       <div class="dropdown-menu  rounded-4 col-12 text-center" style="background-color: #ffffff;width: 390px;">
-        <p><%= link_to "Compte", "#",class:" text-decoration-none text-dark"%></p>
-        <p><%= link_to "Collection", "#",class:" text-decoration-none text-dark"%></p>
-        <p><%= link_to "Ventes", "#",class:"text-decoration-none text-dark"%></p>
+        <p><%= link_to "Compte", "#", class:" text-decoration-none text-dark"%></p>
+        <p><%= link_to "Collection", offers_path(user_id: current_user) , class:" text-decoration-none text-dark"%></p>
+        <p><%= link_to "Ventes", "#", class:"text-decoration-none text-dark"%></p>
         <p><%= link_to "Log out", destroy_user_session_path, class:"text-decoration-none text-dark", data: {turbo_method: :delete}%></p>
       </div></a>
     <% else %>
-    <%# menu se connecter %>
+      <%# menu se connecter %>
       <%= link_to "Se connecter", new_user_session_path, class: "nav-link position-relative top-40 end-0" %>
     <% end %>
 
