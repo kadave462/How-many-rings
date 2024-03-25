@@ -8,7 +8,7 @@
         <h5><strong><%= game.title %></h5></strong>
         <%= game.platform %><br>
         <em><%= game.publisher %></em><br>
-        <%= game.offers.size %> annonce.s pour ce jeu.
+        <%= game.offers.size %> annonce(s) pour ce jeu.
       </div>
     </div>
 
@@ -16,11 +16,11 @@
     <div class='card-game-actions'>
       <%= link_to game_path(game), class: 'btn btn-primary d-block' do %>
         <i class="fa-solid fa-circle-info"></i>
-        Détails du jeu
+        Détails
       <% end %>
       <%= link_to new_game_offer_path(game), class: 'btn btn-success d-block' do %>
         <i class="fa-solid fa-coins"></i>
-        Estimer mon exemplaire
+        Estimer le mien
       <% end %>
     </div>
   </div>

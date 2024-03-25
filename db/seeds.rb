@@ -144,4 +144,60 @@ Offer.create!(
   box_condition: 'Très bon état',
   manual_condition: 'Bon état'
 )
+
+Game.create!(
+  title: "Yoshi's Story",
+  release_year: 1997,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co260t.png',
+  genre: 'Plate-forme',
+  platform: 'Nintendo 64',
+  publisher: 'Nintendo',
+  average_price: 80
+)
+
+Game.create!(
+  title: "Halo 2",
+  release_year: 2004,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1x77.png',
+  genre: 'Shooter',
+  platform: 'Xbox',
+  publisher: 'Bungie',
+  average_price: 50
+)
+
+Game.create!(
+  title: "Skies of Arcadia",
+  release_year: 2000,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2ojm.png',
+  genre: 'RPG',
+  platform: 'Dreamcast',
+  publisher: 'SEGA',
+  average_price: 50
+)
+
+Game.create!(
+  title: "Max Payne",
+  release_year: 2001,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co3wb2.png',
+  genre: 'Shooter',
+  platform: 'PC',
+  publisher: 'Rockstar Games',
+  average_price: 10
+)
+
+Game.create!(
+  title: "Les Sims 4",
+  release_year: 2017,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co3h3l.png',
+  genre: 'Simulateur',
+  platform: 'PlayStation 4',
+  publisher: 'Electronic Arts',
+  average_price: 10
+)
+
 puts 'Seeds OK.'
