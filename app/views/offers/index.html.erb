@@ -1,45 +1,54 @@
-<br>
-<h5>Collection de <strong><%= @user.username %></strong></h5>
-<br>
+<h5>
+  Collection de <strong><%= @user.username %></strong>
+  <em>(<%= @user.offers.size %> jeu(x))</em>
+</h5>
+<% test = 0 %>
 <% @user.offers.each do |offer| %>
-  <div class="card-game" , style="display: flex !important; flex-direction: row !important;">
-    <div class = "card-game-infos-img">
-      <p>
-        <% if offer.photos.attached? %>
-              <% offer.photos.each do |photo| %>
-              <%= cl_image_tag photo.key %>
-              <% end %>
-        <%else%>
-            <%= image_tag offer.game.cover %>
-        <% end %>
-      </p>
+  <% test += offer.game.average_price.to_i %>
+  <div class="card-game">
+    <div class='card-game-infos'>
+      <div class='card-game-infos-img'>
+        <%= image_tag offer.game.cover %>
+      </div>
+
+      <div class="card-game-infos-tags">
+        <h5>
+          <strong><%= offer.game.title %></strong>
+        </h5>
+        <p>
+          <%= offer.game.platform %>
+          <br>
+            Prix moyen : <strong><%= offer.game.average_price %>€</strong>
+          <br>
+          <% if offer.on_sale %>
+            Mon prix : <strong><%= offer.price%>€ </strong>
+            <p><em>Ce jeu est en vente.</em></p>
+          <% else %>
+            <p><em>Ce jeu n'est pas en vente.</em></p>
+          <% end %>
+        </p>
+      </div>
     </div>
 
-    <div class="card-game-infos-tags">
-      <h5>
-        <strong><%= offer.game.title%></strong>
-      </h5>
-
-      <p>
-        <br>
-       Anne: <strong><%= offer.game.release_year %></strong>
-        <br>
-      Genre: <strong><%= offer.game.genre %></strong>
-        <br>
-      Prix: <strong><%= offer.price%>€ </strong>
-      </p>
-
+    <div class='card-game-actions'>
+      <%= link_to offer_path(offer), class: "btn btn-primary" do %>
+        <i class="fa-solid fa-circle-info"></i>
+        Détails
+      <% end %>
       <br>
-        <%if offer.user != current_user %>
-          <%= link_to "infos", offer_path(offer)%></span>
-        <%else%>
-          <%= link_to "infos", offer_path(offer)%>
-          <br>
-          <%= link_to "Modifier mon annonce", edit_offer_path(offer)%>
-          <br>
-          <%= link_to "suprimer l'annonce",offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
-        <%end%>
-      </p>
+      <%if offer.user == current_user %>
+        <%= link_to edit_offer_path(offer), class: "btn btn-dark"  do %>
+          <i class="fa-solid fa-pen"></i>
+          Modifier
+        <% end %>
+        <br>
+        <%= link_to offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}, class: "btn btn-danger" do %>
+          <i class="fa-solid fa-trash"></i>
+          Effacer
+        <% end %>
+      <%end%>
+
     </div>
   </div>
 <% end %>
+<%= test %>
