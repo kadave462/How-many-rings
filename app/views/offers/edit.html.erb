@@ -1,0 +1,18 @@
+  <%= simple_form_for @offer do |f| %>
+    <%= f.input :media_condition, collection: Offer::CONDITIONS, label: "État du jeu :" %>
+    <%= f.input :box_condition, collection: Offer::CONDITIONS, label: "État de la boîte :" %>
+    <%= f.input :cover_condition, collection: Offer::CONDITIONS, label: "État de la jaquette :" %>
+    <%= f.input :manual_condition, collection: Offer::CONDITIONS, label: "État de la notice :" %>
+    <%= f.input :on_sale, label: "Mettre en vente" %>
+    <%= f.input :price, label: "Prix en euros :" %>
+    <%= f.input :description, label: "Description :" %>
+    <% if @offer.photos.attached? %>
+      <% @offer.photos.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end %>
+    <% end %>
+    <%= f.label :photos, "Photo(s) : (facultatif)" %>
+    <%= f.file_field :photos, multiple: true %>
+    <br><br>
+    <%= f.button :submit, "Mettre à jour", class: "btn btn-success w-100" %>
+  <% end %>

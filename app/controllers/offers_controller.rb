@@ -25,10 +25,9 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to offer_path(@offer)
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
-
 
   def create
     @offer = Offer.new(offer_params)
