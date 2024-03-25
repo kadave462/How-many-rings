@@ -28,14 +28,5 @@
       <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
       <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "favoris", "#"%></p>
     </div>
-
- <%# Afficher les photos de l'annonce (offer) s'il y en a %>
-    <% if offer.photos.attached? %>
-      <% offer.photos.each do |photo| %>
-        <%= cl_image_tag photo.key %>
-      <% end %>
-    <% end %>
-
-
   <% end %>
 </div>

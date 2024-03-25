@@ -33,7 +33,10 @@
         <%if offer.user != current_user %>
           <%= link_to "infos", offer_path(offer)%></span>
         <%else%>
+          <%= link_to "infos", offer_path(offer)%>
+          <br>
           <%= link_to "Modifier mon annonce", edit_offer_path(offer)%>
+          <br>
           <%= link_to "suprimer l'annonce",offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}%></span>
         <%end%>
       </p>
