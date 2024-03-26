@@ -12,6 +12,7 @@
       <p>released : <strong><%=@game.release_year%></strong></p>
     </div>
   </div>
+  <i class="fa-solid fa-heart card-logo-heart fa-xl"></i>
   <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
     <i class="fa-solid fa-coins"></i>
     Estimer mon exemplaire
@@ -21,7 +22,7 @@
   <% @offers.each do |offer| %>
     <div class="card-offer-infos">
       <p>Vendeur :<strong><%= link_to offers_path(user_id: offer.user.id), class: "link-dark" do %>
-          <%= offer.user.username %></strong></p><% end %><i class="fa-solid fa-heart card-logo-heart fa-xl"></i>
+          <%= offer.user.username %></strong></p><% end %>
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>
       <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
