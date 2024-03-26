@@ -1,3 +1,4 @@
+  <div class="card-game">
   <%= simple_form_for @offer do |f| %>
     <%= f.input :media_condition, collection: Offer::CONDITIONS, label: "État du jeu :" %>
     <%= f.input :box_condition, collection: Offer::CONDITIONS, label: "État de la boîte :" %>
@@ -16,3 +17,4 @@
     <br><br>
     <%= f.button :submit, "Mettre à jour", class: "btn btn-success w-100" %>
   <% end %>
+ </div>
