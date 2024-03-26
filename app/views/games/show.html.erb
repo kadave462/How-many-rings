@@ -25,6 +25,19 @@
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>
       <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
-      <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "Ajouter a mes favoris",favoris_path(game_id:@game),data: {turbo_method:"POST"} %></p>
+      <% if Favori.where(user: current_user, game: @game).empty? %>
+        <p><%= link_to favoris_path(game_id:@game),data: {turbo_method:"POST"}  do %>
+           <i class="text-primary fa-regular fa-heart"></i>
+           <% end %>
+        </p>
+      <% else %>
+        <p><%= link_to favori_path(Favori.where(user: current_user, game: @game).first.id, game_id: @game), data: {turbo_method: :delete } do %>
+        <i class="text-primary fa-solid fa-heart"></i>
+
+        <% end %>
+
+        </p>
+      <% end %>
+
     </div>
   <% end %>
