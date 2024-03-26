@@ -148,7 +148,7 @@ offer5 = Offer.create!(
 
 Favori.create!(
   user_id: user2.id,
-  offer_id: offer1.id
+  game_id: game3.id
 )
 
 Favori.create!(

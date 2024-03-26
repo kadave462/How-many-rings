@@ -4,8 +4,7 @@ class Offer < ApplicationRecord
 
   has_many_attached :photos
   has_many :favoris
-  has_many :messages
-
+  has_many :messages, dependent: :destroy
 
   validates :box_condition, presence: true
   validates :cover_condition, presence: true
