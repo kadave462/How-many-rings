@@ -26,7 +26,7 @@
   margin: 8px;
   padding: 8px;
   border-radius: 5px;
-  background-color: rgba(256, 256, 256, 0.95);
+  background-color: rgba(256, 256, 256, 0.8);
 }
 
 .card-game-actions {
@@ -86,7 +86,7 @@
   }
 
   body {
-    background-image: url('test.jpg');
+    background-image: url('1.jpg');
     background-repeat: repeat-y;
     background-position: top;
     background-position-x: center;
@@ -101,8 +101,8 @@
 .card-logo-heart {
   display: flex;
   margin-left: 296px;
-  margin-bottom: 16px;
-  margin-top: -21px;
+  margin-bottom: -4px;
+  margin-top: -34px;
   color: black;
   transition: 1s ease;
 }
@@ -110,8 +110,8 @@
 .card-logo-heart:hover {
   display: flex;
   margin-left: 296px;
-  margin-bottom: 16px;
-  margin-top: -21px;
+  margin-bottom: -4px;
+  margin-top: -34px;
   color: red;
   filter: none;
   transition: 1s ease;
