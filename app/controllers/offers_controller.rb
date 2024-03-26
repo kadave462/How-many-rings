@@ -25,6 +25,7 @@ class OffersController < ApplicationController
       redirect_to offer_path(@offer)
     else
       flash[:alert] = "Une erreur est survenue."
+      # render :new
       redirect_to new_game_offer_path(game: @game)
     end
   end

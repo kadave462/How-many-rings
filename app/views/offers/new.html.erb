@@ -20,7 +20,7 @@
 
     <%= simple_form_for [@game, @offer] do |f| %>
 
-        <%= f.input :media_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "game" } } %>
+        <%= f.input :media_condition, collection: Offer::CONDITIONS, required: true, input_html: { data: { estimate_target: "game" } } %>
         <%= f.input :box_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "box" } } %>
         <%= f.input :cover_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "cover" } } %>
         <%= f.input :manual_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "manual" } } %>
@@ -40,7 +40,7 @@
           <br><br>
           <%= f.submit "Ajouter à ma collection", class: "btn btn-success w-100", data: { estimate_target: "firstAddButton" } %>
 
-          <div data-estimate-target="saleInfos" class="d-none">
+          <div data-estimate-target="offerInfos" class="d-none">
             <%= f.input :price, input_html: { data: { estimate_target: "userPrice" } } %>
             <%= f.label :photos, "Photos : (facultatif)" %>
             <%= f.file_field :photos, multiple: true %>
