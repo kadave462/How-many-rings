@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :offers
+  has_many :favoris
   has_many :purchases
   has_many :games, through: :offers
 

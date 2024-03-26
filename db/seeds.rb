@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Favori.destroy_all
 Offer.destroy_all
 Game.destroy_all
 User.destroy_all
@@ -64,7 +66,6 @@ game5 = Game.create!(
   platform: 'Nintendo 64',
   publisher: 'Nintendo',
   average_price: 200
-
 )
 
 user1 = User.create!(
@@ -85,7 +86,7 @@ user3 = User.create!(
   password: 'davidk'
 )
 
-Offer.create!(
+offer1 = Offer.create!(
   user_id: user1.id,
   game_id: game5.id,
   on_sale: true,
@@ -97,7 +98,7 @@ Offer.create!(
   manual_condition: 'Absent'
 )
 
-Offer.create!(
+offer2 = Offer.create!(
   user_id: user1.id,
   game_id: game2.id,
   on_sale: true,
@@ -109,7 +110,7 @@ Offer.create!(
   manual_condition: 'Mauvais état'
 )
 
-Offer.create!(
+offer3 = Offer.create!(
   user_id: user2.id,
   game_id: game1.id,
   on_sale: true,
@@ -121,7 +122,7 @@ Offer.create!(
   manual_condition: 'Très bon état'
 )
 
-Offer.create!(
+offer4 = Offer.create!(
   user_id: user3.id,
   game_id: game4.id,
   on_sale: true,
@@ -133,7 +134,7 @@ Offer.create!(
   manual_condition: 'Mauvais état'
 )
 
-Offer.create!(
+offer5 = Offer.create!(
   user_id: user2.id,
   game_id: game3.id,
   on_sale: true,
@@ -144,4 +145,75 @@ Offer.create!(
   box_condition: 'Très bon état',
   manual_condition: 'Bon état'
 )
+
+Favori.create!(
+  user_id: user2.id,
+  game_id: game5.id
+)
+
+Favori.create!(
+  user_id: user1.id,
+  game_id: game2.id
+)
+
+Favori.create!(
+  user_id: user3.id,
+  game_id: game3.id
+)
+
+Game.create!(
+  title: "Yoshi's Story",
+  release_year: 1997,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co260t.png',
+  genre: 'Plate-forme',
+  platform: 'Nintendo 64',
+  publisher: 'Nintendo',
+  average_price: 80
+)
+
+Game.create!(
+  title: "Halo 2",
+  release_year: 2004,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1x77.png',
+  genre: 'Shooter',
+  platform: 'Xbox',
+  publisher: 'Bungie',
+  average_price: 50
+)
+
+Game.create!(
+  title: "Skies of Arcadia",
+  release_year: 2000,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2ojm.png',
+  genre: 'RPG',
+  platform: 'Dreamcast',
+  publisher: 'SEGA',
+  average_price: 50
+)
+
+Game.create!(
+  title: "Max Payne",
+  release_year: 2001,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co3wb2.png',
+  genre: 'Shooter',
+  platform: 'PC',
+  publisher: 'Rockstar Games',
+  average_price: 10
+)
+
+Game.create!(
+  title: "Les Sims 4",
+  release_year: 2017,
+  description: '',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co3h3l.png',
+  genre: 'Simulateur',
+  platform: 'PlayStation 4',
+  publisher: 'Electronic Arts',
+  average_price: 10
+)
+
 puts 'Seeds OK.'

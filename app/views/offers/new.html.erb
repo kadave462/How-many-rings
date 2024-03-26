@@ -39,25 +39,28 @@
         <%# Zone masquée par défaut mais qui s'affiche au clic sur "Estimer"%>
         <div data-estimate-target="addButton" class="d-none">
           <br>
-          <p>Prix estimée : <strong><span data-estimate-target="estimatedPrice"></span>€</p></strong>
-          <%= f.label :price, "Votre prix :" %>
-          <%= f.text_field :price, { required: true, data: { estimate_target: "price" } } %>€
-          <br><br>
-
+          <p>Prix estimé : <strong><span data-estimate-target="estimatedPrice"></span>€</p></strong>
           <%= f.label :on_sale, "Mettre en vente :" %>
-          <%= f.radio_button :on_sale, true, required: true %>
+          <%= f.radio_button :on_sale, true, { required: true, data: { action: "click->estimate#onSale" } } %>
           <%= f.label :on_sale, "Oui" %>
-          <%= f.radio_button :on_sale, false, required: true %>
+          <%= f.radio_button :on_sale, false, { required: true, data: { action: "click->estimate#notOnSale" } } %>
           <%= f.label :on_sale, "Non" %>
           <br><br>
-          <%= f.label :photos, "Photos : (facultatif)" %>
-          <%= f.file_field :photos, multiple: true %>
-          <br><br>
-          <%= f.label :description, "Description :" %>
-          <br>
-          <%= f.text_area :description, required: true %>
-          <br><br>
-          <%= f.submit "Ajouter à ma collection", class: "btn btn-primary w-100" %>
+          <%= f.submit "Ajouter à ma collection", class: "btn btn-success w-100", data: { estimate_target: "firstAddButton" } %>
+
+          <div data-estimate-target="saleInfos" class="d-none">
+            <%= f.label :price, "Votre prix :" %>
+            <%= f.text_field :price, { data: { estimate_target: "userPrice" } } %>€
+            <br><br>
+            <%= f.label :photos, "Photos : (facultatif)" %>
+            <%= f.file_field :photos, multiple: true %>
+            <br><br>
+            <%= f.label :description, "Description :" %>
+            <br>
+            <%= f.text_area :description %>
+            <br><br>
+            <%= f.submit "Ajouter à ma collection", class: "btn btn-success w-100" %>
+          </div>
         </div>
         <%# Fin de la zone masquée %>
 
