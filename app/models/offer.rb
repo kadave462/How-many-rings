@@ -6,6 +6,7 @@ class Offer < ApplicationRecord
   has_many :favoris
   has_many :messages
 
+
   validates :box_condition, presence: true
   validates :cover_condition, presence: true
   validates :manual_condition, presence: true
