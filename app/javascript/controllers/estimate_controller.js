@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="estimate"
 export default class extends Controller {
-  static targets = ["addButton", "box", "cover", "manual", "game", "userPrice", "estimatedPrice", "saleInfos", "firstAddButton"]
+  static targets = ["addButton", "box", "cover", "manual", "game", "userPrice", "estimatedPrice", "offerInfos", "firstAddButton"]
   static values = {
     price: Number,
   }
@@ -17,13 +17,13 @@ export default class extends Controller {
   }
 
   onSale() {
-    this.saleInfosTarget.classList.remove("d-none")
+    this.offerInfosTarget.classList.remove("d-none")
     this.firstAddButtonTarget.classList.add("d-none")
     this.userPriceTarget.setAttribute("required", true)
   }
 
   notOnSale() {
-    this.saleInfosTarget.classList.add("d-none")
+    this.offerInfosTarget.classList.add("d-none")
     this.firstAddButtonTarget.classList.remove("d-none")
     this.userPriceTarget.removeAttribute("required")
   }
