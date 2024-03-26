@@ -10,7 +10,11 @@ class MessagesController < ApplicationController
     @message.offer = @offer
     @message.user = current_user
     if @message.save
-      redirect_to offer_path(@offer)
+      OfferChannel.broadcast_to(
+        @offer,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      head :ok
     else
       render "offer/show", status: :unprocessable_entity
     end
