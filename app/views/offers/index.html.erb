@@ -1,7 +1,8 @@
+<div class="card-game text-center">
 <h5>
   Collection de <strong><%= @user.username %></strong>
   <em>(<%= @user.offers.size %> jeu(x))</em>
-</h5>
+</h5></div>
 <% test = 0 %>
 <% @user.offers.each do |offer| %>
   <% test += offer.game.average_price.to_i %>
