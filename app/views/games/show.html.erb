@@ -13,8 +13,7 @@
     </div>
   </div>
       <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
-        <i class="fa-solid fa-coins"></i>
-        Estimer mon exemplaire
+        <i class="fa-solid fa-coins fa-flip-horizontal"></i> Estimer mon exemplaire <i class="fa-solid fa-coins"></i>
       <% end %>
 </div>
 
@@ -22,11 +21,10 @@
   <% @offers.each do |offer| %>
     <div class="card-offer-infos">
       <p>Vendeur :<strong><%= link_to offers_path(user_id: offer.user.id), class: "link-dark" do %>
-          <%= offer.user.username %></strong><% end %></p>
+          <%= offer.user.username %></strong></p><% end %><i class="fa-solid fa-heart card-logo-heart fa-xl"></i>
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>
       <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
-      <p><i class="text-primary fa-solid fa-heart"></i> <%= link_to "favoris", "#"%></p>
     </div>
 
  <%# Afficher les photos de l'annonce (offer) s'il y en a %>
@@ -36,6 +34,4 @@
       <% end %>
     <% end %>
 
-
   <% end %>
-</div>

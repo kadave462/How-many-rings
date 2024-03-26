@@ -15,14 +15,14 @@
 
     <div class='card-game-actions'>
       <%= link_to game_path(game), class: 'btn btn-primary d-block' do %>
-        <i class="fa-solid fa-circle-info"></i>
-        Détails du jeu
+        <i class=" fa-circle-info fa fa-solid fa-flip-horizontal"></i> Détails du jeu <i class="fa-solid fa-circle-info"></i>
+
       <% end %>
       <%= link_to new_game_offer_path(game), class: 'btn btn-success d-block' do %>
-        <i class="fa-solid fa-coins"></i>
-        Estimer mon exemplaire
+        <i class="fa-solid fa-coins fa-flip-horizontal"></i> Estimer mon exemplaire <i class="fa-solid fa-coins"></i>
       <% end %>
     </div>
   </div>
 
 <% end %>
+

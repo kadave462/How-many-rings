@@ -1,5 +1,6 @@
 .mobile-container {
   width: 360px;
+  height: 844px;
   margin: auto;
 
   & img {
@@ -52,6 +53,7 @@
   border-radius: 5px;
   background-color: white;
 
+
   & p {
     margin: 0;
   }
@@ -62,3 +64,35 @@
     color: dark;
 
   }
+
+  body {
+    background-image: url('test.jpg');
+    background-repeat: repeat-y;
+    background-position: top;
+    background-position-x: center;
+
+  }
+
+  .ex3{
+    background-origin: border-box;
+    background-position : top right;
+}
+
+.card-logo-heart {
+  display: flex;
+  margin-left: 300px;
+  margin-bottom: 7px;
+  margin-top: -10px;
+  color: black;
+  transition: 1s ease;
+}
+
+.card-logo-heart:hover {
+  display: flex;
+  margin-left: 300px;
+  margin-bottom: 7px;
+  margin-top: -10px;
+  color: red;
+  filter: none;
+  transition: 1s ease;
+}
