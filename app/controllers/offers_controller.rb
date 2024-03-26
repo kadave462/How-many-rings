@@ -8,6 +8,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @game = @offer.game
+    @message = Message.new
   end
 
   def new

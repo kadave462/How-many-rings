@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :games do
-    resources :offers, only: [:create, :new]
+    resources :offers, only: %i[create new]
   end
 
-  resources :offers, only: [:index, :destroy, :show, :edit, :update]
+  resources :offers, only: %i[index destroy show edit update] do
+    resources :messages, only: :create
+  end
 
-  resources :favoris, only: [:index, :create, :new, :show,]
+  resources :favoris, only: %i[index create new show]
 
   get 'account', to: "pages#account"
 

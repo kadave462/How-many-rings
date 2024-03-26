@@ -13,35 +13,60 @@
   </div>
 </div>
 
-  <div class="card-game">
-    <h2 class="text-center">Mon exemplaire</h2>
-    <div class ="card-game-infos-img">
-      <% if @offer.photos.attached? %>
-        <% @offer.photos.each do |photo| %>
-          <%= cl_image_tag photo.key %>
-        <% end %>
-      <% else %>
-        <%= image_tag asset_path('no_photo.jpg') %>
+<div class="card-game">
+  <h2 class="text-center">Mon exemplaire</h2>
+  <div class ="card-game-infos-img">
+    <% if @offer.photos.attached? %>
+      <% @offer.photos.each do |photo| %>
+        <%= cl_image_tag photo.key %>
       <% end %>
-    </div>
-
-    <div class ="card-game-infos-tags">
-      <p>Prix: <strong><%=@offer.price %>€</strong></p>
-      <p>Etat : <strong><%=@offer.media_condition %></strong></p>
-      <p>Couverture: <strong><%=@offer.cover_condition %></strong></p>
-      <p>Boite: <strong><%=@offer.box_condition %></strong></p>
-      <p>Description: <strong><%=@offer.description%></strong></p>
-      <%if @offer.user != current_user %>
-        <%= link_to "Acheter", offer_path(@offer)%></span>
-      <%else%>
-        <%= link_to "Modifier", edit_offer_path(@offer)%>
-        <br>
-        <%= link_to "Supprimer", offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"}%></span>
-      <%end%>
-    </div>
+    <% else %>
+      <%= image_tag asset_path('no_photo.jpg') %>
+    <% end %>
   </div>
 
-  <div class="card-game">
-    <h2 class="text-center">Vendeur</h2>
-    <p>Nom : <strong><%=link_to @offer.user.username ,offers_path(user_id: @offer.user.id)%></strong></p>
+  <div class ="card-game-infos-tags">
+    <p>Prix: <strong><%=@offer.price %>€</strong></p>
+    <p>Etat : <strong><%=@offer.media_condition %></strong></p>
+    <p>Couverture: <strong><%=@offer.cover_condition %></strong></p>
+    <p>Boite: <strong><%=@offer.box_condition %></strong></p>
+    <p>Description: <strong><%=@offer.description%></strong></p>
+    <%if @offer.user != current_user %>
+      <%= link_to "Acheter", offer_path(@offer)%></span>
+    <%else%>
+      <%= link_to "Modifier", edit_offer_path(@offer)%>
+      <br>
+      <%= link_to "Supprimer", offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"}%></span>
+    <%end%>
+  </div>
+</div>
+
+<div class="card-game">
+  <h2 class="text-center">Vendeur</h2>
+  <p>Nom : <strong><%=link_to @offer.user.username, offers_path(user_id: @offer.user.id)%></strong></p>
+
+
+  <%# Chatroom %>
+  <div class="container chatroom">
+  <h3>Chat</h3>
+
+  <div class="messages">
+    <% @offer.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.username %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@offer, @message], html: {class: "d-flex"} do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message #TEST", wrapper_html: {class: "flex-grow-1"} %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+
+</div>
+
 </div>
