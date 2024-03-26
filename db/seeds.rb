@@ -146,6 +146,13 @@ offer5 = Offer.create!(
   manual_condition: 'Bon état'
 )
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+Favori.create!(
+  user_id: user2.id,
+  offer_id: offer1.id
+=======
+=======
 Favori.create!(
   user_id: user2.id,
   game_id: game5.id
@@ -161,6 +168,7 @@ Favori.create!(
   game_id: game3.id
 )
 
+>>>>>>> master
 Game.create!(
   title: "Yoshi's Story",
   release_year: 1997,
@@ -214,6 +222,10 @@ Game.create!(
   platform: 'PlayStation 4',
   publisher: 'Electronic Arts',
   average_price: 10
+<<<<<<< HEAD
+>>>>>>> e56a54a979eba4d968f24d363ab8c5ebe194a981
+=======
+>>>>>>> master
 )
 
 puts 'Seeds OK.'

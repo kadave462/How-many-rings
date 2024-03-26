@@ -5,6 +5,7 @@ class Offer < ApplicationRecord
   has_many_attached :photos
   has_many :favoris
 
+
   validates :box_condition, presence: true
   validates :cover_condition, presence: true
   validates :manual_condition, presence: true
