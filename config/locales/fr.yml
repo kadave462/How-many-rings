@@ -1,0 +1,37 @@
+fr:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%A %e %B %Y"
+      date: "%d/%m/%Y"
+      birthday: "%d/%m"
+      date_hour: "%d/%m/%Y à %Hh"
+      hour: "%Hh"
+      hour_min: "%Hh%M"
+      abbr_bis: "%a %d %b"
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, Janv, Févr, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
+  time:
+    formats:
+      default: "%d/%m - %Hh%M"
+      default_long: "%d/%m/%Y - %Hh%M"
+      short: "%A %d/%m/%Y"
+      long: "%A %e %B %Y"
+      date: "%d/%m/%Y"
+      date_short_year: "%d/%m/%y"
+      date_short: "%d/%m"
+      date_reverse: "%Y/%m/%d"
+      hour: "%H h"
+      hour_min: "%Hh%M"
+      abbr: "%a %d %b %Y"
+      abbr_bis: "%a %d %b à %Hh"
+      day_name: "%A"
+      week: "Semaine %W"
+      chat_date: "%d/%m/%Y - %Hh%M"
