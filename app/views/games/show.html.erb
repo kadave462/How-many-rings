@@ -33,7 +33,6 @@
       <% else %>
         <p><%= link_to favori_path(Favori.where(user: current_user, game: @game).first.id, game_id: @game), data: {turbo_method: :delete } do %>
         <i class="text-primary fa-solid fa-heart"></i>
-
         <% end %>
 
         </p>
