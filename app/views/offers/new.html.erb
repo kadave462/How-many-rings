@@ -25,7 +25,7 @@
         <%= f.input :cover_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "cover" } } %>
         <%= f.input :manual_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "manual" } } %>
 
-        <span data-action="click->estimate#displaySubmitArea" class='btn btn-primary d-block'>Estimer</span>
+        <span data-action="click->estimate#displaySubmitArea" class='btn btn-info d-block'>Estimer</span>
 
         <%# Zone masquée par défaut mais qui s'affiche au clic sur "Estimer"%>
         <div data-estimate-target="addButton" class="d-none">
