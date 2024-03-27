@@ -15,12 +15,14 @@ class FavorisController < ApplicationController
 
   def destroy
     @favori = Favori.find(params[:id])
+
     @game = @favori.game
     @favori.destroy
 
     respond_to do |format|
       format.html { redirect_to games_path }
       format.text { render partial: 'games/game', locals: { game: @game }, formats: [:html] }
+
     end
   end
 

@@ -1,18 +1,28 @@
 .mobile-container {
   width: 360px;
-  height: 844px;
   margin: auto;
 
   & img {
     object-fit: cover;
     object-position: center;
     width: 100%;
+    border-radius: 5px;
   }
 }
 
 .decoration-none {
   text-decoration:none;
 }
+
+.card-chat {
+  background-color: white;
+  height: 300px;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
 .card-game {
   display: flex;
   flex-direction: column;
@@ -20,7 +30,7 @@
   margin: 8px;
   padding: 8px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(256, 256, 256, 0.8);
 }
 
 .card-game-actions {
@@ -81,7 +91,7 @@
   }
 
   body {
-    background-image: url('test.jpg');
+    background-image: url('1.jpg');
     background-repeat: repeat-y;
     background-position: top;
     background-position-x: center;
@@ -96,8 +106,8 @@
 .card-logo-heart {
   display: flex;
   margin-left: 296px;
-  margin-bottom: 16px;
-  margin-top: -21px;
+  margin-bottom: -4px;
+  margin-top: -34px;
   color: black;
   transition: 1s ease;
 }
@@ -105,8 +115,8 @@
 .card-logo-heart:hover {
   display: flex;
   margin-left: 296px;
-  margin-bottom: 16px;
-  margin-top: -21px;
+  margin-bottom: -4px;
+  margin-top: -34px;
   color: red;
   filter: none;
   transition: 1s ease;
