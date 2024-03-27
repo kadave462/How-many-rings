@@ -11,7 +11,7 @@
 }
 
 .decoration-none {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .card-chat {
@@ -37,17 +37,43 @@
 .card-game-actions {
   display: flex;
   // margin: auto;
-  margin-left: 160px;
+
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
+}
+
+.card-game-actions1 {
+  display: flex;
+  // margin: auto;
+  margin-left: 158px;
+  width: 270px;
+
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
+}
+
+.card-game-actions2 {
+  display: flex;
+  // margin: auto;
+  width: 290px;
 
   & a {
     margin-right: 2px;
     margin-left: 2px;
     margin-top: 4px;
+    border-radius: 5px;
   }
 }
 
 .card-game-estimation {
-
 }
 
 .card-game-infos {
@@ -65,13 +91,17 @@
   }
 }
 
-.card-game-infos-tags {
-  width: 150px;
-  height: 200px;
+.card-game-infos-img1 {
+  margin: auto;
+  & img {
+    width: 150px;
+    height: 200px;
+  }
+}
 
+.card-game-infos-tags {
   & p {
     margin: 0px;
-
   }
 }
 
@@ -84,29 +114,26 @@
   border-radius: 5px;
   background-color: white;
 
-
   & p {
     margin: 0;
   }
 }
 
 .link-dark {
-    text-decoration: black;
-    color: dark;
+  text-decoration: black;
+  color: dark;
+}
 
-  }
+body {
+  background-image: url("1.jpg");
+  background-repeat: repeat-y;
+  background-position: top;
+  background-position-x: center;
+}
 
-  body {
-    background-image: url('1.jpg');
-    background-repeat: repeat-y;
-    background-position: top;
-    background-position-x: center;
-
-  }
-
-  .ex3{
-    background-origin: border-box;
-    background-position : top right;
+.ex3 {
+  background-origin: border-box;
+  background-position: top right;
 }
 
 .card-logo-heart {

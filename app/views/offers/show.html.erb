@@ -15,7 +15,7 @@
 
 <div class="card-game">
   <h2 class="text-center">Mon exemplaire</h2>
-  <div class ="card-game-infos-img">
+  <div class ="card-game-infos-img1">
     <% if @offer.photos.attached? %>
       <% @offer.photos.each do |photo| %>
         <%= cl_image_tag photo.key %>
@@ -32,18 +32,15 @@
     <p>Boite: <strong><%=@offer.box_condition %></strong></p>
     <p>Description: <strong><%=@offer.description%></strong></p>
       <%if @offer.user != current_user %>
-        <%= link_to offer_path(@offer), class: "btn btn-primary d-block"  do %>
+        <%= link_to offer_path(@offer), class: "btn btn-primary d-block "  do %>
           Acheter
         <% end %>
       <%else%>
-        <div class='card-game-actions'>
-          <%= link_to edit_offer_path(@offer),class:"btn btn-dark" do %>
-            <i class="fa-solid fa-pen"></i>
+        <div class='card-game-actions2'>
+          <%= link_to edit_offer_path(@offer),class:"btn btn-dark d-block col-7 " do %>
               Modifier
           <% end %>
-          <br>
-          <%= link_to offer_path(@offer), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"} do %></span>
-            <i class="fa-solid fa-trash"></i>
+          <%= link_to offer_path(@offer), class: "btn btn-danger d-block col-7 ", data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"} do %></span>
             Supprimer
           <% end %>
         </div>
