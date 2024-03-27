@@ -21,13 +21,11 @@
         <i class=" fa-solid fa-heart fa-lg card-logo-heart" data-action="click->add-favori#destroyFavori"></i>
       <% end %>
 
-    <div class='card-game-actions'>
-      <%= link_to game_path(game), class: 'btn btn-primary d-block btn-sm' do %>
-        <i class="fa-solid fa-circle-info"></i>
+    <div class='card-game-actions1'>
+      <%= link_to game_path(game), class: 'btn btn-primary btn-sm col-4' do %>
         Détails
       <% end %>
-      <%= link_to new_game_offer_path(game), class: 'btn btn-success d-block btn-sm' do %>
-        <i class="fa-solid fa-coins"></i>
+      <%= link_to new_game_offer_path(game), class: 'btn btn-success btn-sm col-4' do %>
         Estimer
       <% end %>
     </div>

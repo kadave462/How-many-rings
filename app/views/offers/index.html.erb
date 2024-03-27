@@ -32,19 +32,19 @@
     </div>
 
     <div class='card-game-actions'>
-      <%= link_to offer_path(offer), class: "btn btn-primary" do %>
-        <i class="fa-solid fa-circle-info"></i>
+      <%= link_to offer_path(offer), class: "btn btn-primary col-4 btn-sm" do %>
+
         Détails
       <% end %>
       <br>
       <%if offer.user == current_user %>
-        <%= link_to edit_offer_path(offer), class: "btn btn-dark"  do %>
-          <i class="fa-solid fa-pen"></i>
+        <%= link_to edit_offer_path(offer), class: "btn btn-dark col-4 btn-sm"  do %>
+
           Modifier
         <% end %>
         <br>
-        <%= link_to offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}, class: "btn btn-danger" do %>
-          <i class="fa-solid fa-trash"></i>
+        <%= link_to offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}, class: "btn btn-danger col-4 btn-sm" do %>
+
           Effacer
         <% end %>
       <%end%>
