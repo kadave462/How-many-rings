@@ -1,16 +1,4 @@
 <%# Carte du jeu %>
 <% @favoris.each do |favori| %>
-  <div class='card-game'>
-    <div class='card-game-infos'>
-      <div class='card-game-infos-img'>
-        <%= image_tag favori.game.cover %>
-      </div>
-      <div class='card-game-infos-tags'>
-        <h5><strong><%= favori.game.title %></h5></strong>
-        <p> Sortie : <strong><%= favori.game.release_year %></strong></p>
-        <p> publisher : <strong><%= favori.game.publisher %></strong></p>
-        <p> Platform : <strong><%= favori.game.platform %></strong></p>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'games/game', locals: { game: favori.game } %>
 <% end %>

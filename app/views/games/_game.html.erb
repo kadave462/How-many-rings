@@ -1,0 +1,34 @@
+  <div class='card-game' data-controller="add-favori"
+     data-add-favori-game-id-value="<%= game.id %>"
+     data-add-favori-favori-id-value="<%= game.favoris.where(user: current_user).first&.id %>"
+     data-add-favori-target="cardGame"
+  >
+    <div class='card-game-infos'>
+      <div class='card-game-infos-img'>
+        <%= image_tag game.cover %>
+      </div>
+      <div class='card-game-infos-tags'>
+        <h5><strong><%= game.title %></h5></strong>
+        <%= game.platform %><br>
+        <em><%= game.publisher %></em><br>
+        <%= game.offers.size %> annonce(s) pour ce jeu.
+      </div>
+    </div>
+
+      <% if game.favoris.where(user: current_user).empty? %>
+          <i class="text-danger fa-regular fa-heart" data-action="click->add-favori#createFavori"></i>
+      <% else %>
+        <i class="text-danger fa-solid fa-heart" data-action="click->add-favori#destroyFavori"></i>
+      <% end %>
+
+    <div class='card-game-actions'>
+      <%= link_to game_path(game), class: 'btn btn-primary d-block' do %>
+        <i class="fa-solid fa-circle-info"></i>
+        Détails
+      <% end %>
+      <%= link_to new_game_offer_path(game), class: 'btn btn-success d-block' do %>
+        <i class="fa-solid fa-coins"></i>
+        Estimer le mien
+      <% end %>
+    </div>
+  </div>

@@ -39,7 +39,12 @@
           <%= offer.user.username %></strong></p><% end %>
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>
-      <br><p><i class="text-primary fa-solid fa-eye "></i> <%= link_to "Voir cette annonce", offer_path(offer)%></p>
+      <br>
+      <p><%= link_to offer_path(offer), class: 'btn btn-primary d-block' do %><i class="text-primary fa-solid fa-eye "></i>
+        <i class="fa-solid fa-eye "></i>
+        voir cette annonce
+        <% end %>
+      </p>
     </div>
   <% end %>
 </div>
