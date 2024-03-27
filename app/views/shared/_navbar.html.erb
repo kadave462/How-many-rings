@@ -2,7 +2,7 @@
 <div class="navbar navbar-center rounded-4 rounded-top-0 border border-2 border-black-subtitle " style="background-color: #ffffff;width: 390px;margin: auto;">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710847333/test/logo_rings_paviez.png", width:"40", height:"40" %>
+      <%= image_tag asset_path("hmr_logo"), width:"40", height:"40" %>
     <% end %>
 
     <%# bouton recherche %>
@@ -15,11 +15,15 @@
     <%# avatar %>
     <% if user_signed_in? %>
       <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= image_tag "https://res.cloudinary.com/dpwqk83qv/image/upload/v1710860343/test/f7cd9qxqr6fod0oobnnd.jpg", class: "avatar", alt: "dropdown menu" %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class: "avatar", alt: "dropdown menu" %>
+      <% else %>
+        <%= image_tag asset_path("no_avatar"), class: "avatar", alt: "dropdown menu"  %>
+      <% end %>
 
       <%# sous menu de l'avatar %>
       <div class="dropdown-menu  rounded-4 col-12 text-center" style="background-color: #ffffff;width: 390px;">
-        <p><%= link_to "Compte", "#", class:" text-decoration-none text-dark"%></p>
+        <p><%= link_to "Compte", edit_user_registration_path, class:" text-decoration-none text-dark"%></p>
         <p><%= link_to "Collection", offers_path(user_id: current_user) , class:" text-decoration-none text-dark"%></p>
         <p><%= link_to "Mes favoris",favoris_path,class:" text-decoration-none text-dark"%></p>
         <p><%= link_to "Ventes", "#", class:"text-decoration-none text-dark"%></p>
@@ -27,7 +31,7 @@
       </div></a>
     <% else %>
       <%# menu se connecter %>
-      <%= link_to "Se connecter", new_user_session_path, class: "nav-link position-relative top-40 end-0" %>
+      <%= link_to "Connexion", new_user_session_path, class: "nav-link position-relative top-40 end-0" %>
     <% end %>
 
     </div>
