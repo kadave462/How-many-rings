@@ -31,21 +31,26 @@
     <p>Couverture: <strong><%=@offer.cover_condition %></strong></p>
     <p>Boite: <strong><%=@offer.box_condition %></strong></p>
     <p>Description: <strong><%=@offer.description%></strong></p>
-    <%if @offer.user != current_user %>
-      <%= link_to "Acheter", offer_path(@offer)%></span>
-    <%else%>
-      <%= link_to "Modifier", edit_offer_path(@offer)%>
-      <br>
-      <%= link_to "Supprimer", offer_path(@offer),data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"}%></span>
-    <%end%>
+      <%if @offer.user != current_user %>
+        <%= link_to offer_path(@offer), class: "btn btn-primary d-block"  do %>
+          Acheter
+        <% end %>
+      <%else%>
+        <div class='card-game-actions'>
+          <%= link_to edit_offer_path(@offer),class:"btn btn-dark" do %>
+            <i class="fa-solid fa-pen"></i>
+              Modifier
+          <% end %>
+          <br>
+          <%= link_to offer_path(@offer), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"} do %></span>
+            <i class="fa-solid fa-trash"></i>
+            Supprimer
+          <% end %>
+        </div>
+      <%end%>
   </div>
 </div>
 
-<div class="card-game">
-  <h2 class="text-center">Vendeur</h2>
-  <p>Nom : <strong><%=link_to @offer.user.username, offers_path(user_id: @offer.user.id)%></strong></p>
-
-</div>
 
 <div class="card-game">
 

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  resources :favoris, only: [:index, :create, :new, :show, :destroy]
+  resources :favoris, only: [:create, :destroy, :index]
 
   get 'account', to: "pages#account"
 

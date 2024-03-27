@@ -10,6 +10,10 @@
   }
 }
 
+.decoration-none {
+  text-decoration:none;
+}
+
 .card-chat {
   background-color: white;
   height: 300px;
@@ -31,7 +35,8 @@
 
 .card-game-actions {
   display: flex;
-  margin: auto;
+  // margin: auto;
+  justify-content: center;
 
   & a {
     margin-right: 2px;
