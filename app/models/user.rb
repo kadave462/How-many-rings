@@ -9,5 +9,8 @@ class User < ApplicationRecord
   has_many :purchases
   has_many :games, through: :offers
 
+  has_one_attached :photo
+
   validates :email, uniqueness: true
+  validates :username, uniqueness: true
 end
