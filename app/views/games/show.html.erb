@@ -1,35 +1,41 @@
 <%# Carte du jeu %>
-<div class="card-game">
-  <div class='card-game-infos'>
+  <div class='card-game' data-controller="add-favori"
+     data-add-favori-game-id-value="<%= @game.id %>"
+     data-add-favori-favori-id-value="<%= @game.favoris.where(user: current_user).first&.id %>"
+     data-add-favori-target="cardGame"
+  >
     <div class='card-game-infos-img'>
       <%= image_tag @game.cover %>
     </div>
-    <div class='card-game-infos-tags'>
-      <h5><strong><%= @game.title %></strong></h5>
-      <p>console : <strong><%=@game.platform%></strong></p>
-      <p>publisher : <strong><%=@game.publisher%></strong></p>
-      <p>genre : <strong><%=@game.genre%></strong></p>
-      <p>released : <strong><%=@game.release_year%></strong></p>
-    </div>
-  </div>
-  <div class="card-logo-heart fa-xl">
-    <% if @game.favoris.where(user: current_user).empty? %>
-        <p><%= link_to favoris_path(game_id:@game, origin: "game-show"),data: {turbo_method:"POST"}  do %>
-          <i class="text-danger fa-regular fa-heart"></i>
+
+    <div class='card-game-infos'>
+
+      <div class='card-game-infos-tags'>
+
+        <div class="wrapper-row-spacebtw">
+          <h5><strong><%= @game.title %></h5></strong>
+          <% if @game.favoris.where(user: current_user).empty? %>
+            <i class=" fa-regular fa-heart fa-lg card-logo-heart" data-action="click->add-favori#createFavori"></i>
+          <% else %>
+            <i class=" fa-solid fa-heart fa-lg card-logo-heart" data-action="click->add-favori#destroyFavori"></i>
           <% end %>
-        </p>
-    <% else %>
-      <p><%= link_to favori_path(@game.favoris.where(user: current_user).first.id, game_id: @game, origin: "game-show"), data: {turbo_method: :delete } do %>
-      <i class="text-danger fa-solid fa-heart"></i>
-      <% end %>
-      </p>
-    <% end %>
+        </div>
+
+        <%= @game.platform %><br>
+        <em><%= @game.publisher %></em><br>
+
+      </div>
+
+      <div class='card-game-info-actions'>
+        <%= link_to new_game_offer_path(@game), class: 'btn btn-success w-100' do %>
+          Estimer mon jeu
+        <% end %>
+      </div>
+    </div>
+
+
   </div>
-  <%= link_to new_game_offer_path(@game), class: 'btn btn-success d-block' do %>
-    <i class="fa-solid fa-coins"></i>
-    Estimer mon exemplaire
-  <% end %>
-</div>
+
 
 <div>
   <%# Carte du vendeur ayant le jeu %>
@@ -40,7 +46,7 @@
       <p>Prix : <%= offer.price %>€</p>
       <p>Description : <%= offer.description %></p>
       <br>
-      <p><%= link_to offer_path(offer), class: 'btn btn-primary d-block' do %><i class="text-primary fa-solid fa-eye "></i>
+      <p><%= link_to offer_path(offer), class: 'btn btn-primary d-block' do %>
         <i class="fa-solid fa-eye "></i>
         voir cette annonce
         <% end %>
