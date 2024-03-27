@@ -13,13 +13,13 @@
     </div>
   </div>
   <div class="card-logo-heart fa-xl">
-    <% if Favori.where(user: current_user, game: @game).empty? %>
-        <p><%= link_to favoris_path(game_id:@game),data: {turbo_method:"POST"}  do %>
+    <% if @game.favoris.where(user: current_user).empty? %>
+        <p><%= link_to favoris_path(game_id:@game, origin: "game-show"),data: {turbo_method:"POST"}  do %>
           <i class="text-danger fa-regular fa-heart"></i>
           <% end %>
         </p>
     <% else %>
-      <p><%= link_to favori_path(Favori.where(user: current_user, game: @game).first.id, game_id: @game), data: {turbo_method: :delete } do %>
+      <p><%= link_to favori_path(@game.favoris.where(user: current_user).first.id, game_id: @game, origin: "game-show"), data: {turbo_method: :delete } do %>
       <i class="text-danger fa-solid fa-heart"></i>
       <% end %>
       </p>
