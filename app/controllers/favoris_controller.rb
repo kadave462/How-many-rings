@@ -8,7 +8,7 @@ class FavorisController < ApplicationController
     @favori.save
 
     respond_to do |format|
-      format.html { redirect_to games_path }
+      format.html { redirect_to(params[:origin] == "game-show" ? game_path(@game) : games_path) }
       format.text { render partial: 'games/game', locals: { game: @game }, formats: [:html] }
     end
   end
@@ -20,7 +20,7 @@ class FavorisController < ApplicationController
     @favori.destroy
 
     respond_to do |format|
-      format.html { redirect_to games_path }
+      format.html { redirect_to(params[:origin] == "game-show" ? game_path(@game) : games_path) }
       format.text { render partial: 'games/game', locals: { game: @game }, formats: [:html] }
 
     end
