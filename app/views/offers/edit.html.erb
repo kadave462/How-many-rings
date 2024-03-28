@@ -1,4 +1,4 @@
-  <div class="card-game">
+  <div class="card-generic">
   <%= simple_form_for @offer do |f| %>
     <%= f.input :media_condition, collection: Offer::CONDITIONS, label: "État du jeu :" %>
     <%= f.input :box_condition, collection: Offer::CONDITIONS, label: "État de la boîte :" %>
@@ -12,7 +12,6 @@
         <%= cl_image_tag photo.key %>
       <% end %>
     <% end %>
-    <br><br>
     <%= f.label :photos, "Photo(s) : (facultatif)" %>
     <%= f.file_field :photos, multiple: true %>
     <br><br>

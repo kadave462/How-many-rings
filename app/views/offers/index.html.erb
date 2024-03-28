@@ -1,11 +1,16 @@
-<div class="card-game text-center">
-<h5>
-  Collection de <strong><%= @user.username %></strong>
-  <em>(<%= @user.offers.size %> jeu(x))</em>
-</h5></div>
-<% test = 0 %>
+<div class="card-generic">
+  <h5>
+    <% if @user == current_user %>
+      <strong>Ma collection</strong>
+      <em>(<%= @user.offers.size %> jeu(x))</em>
+    <% else %>
+      Collection de <strong><%= @user.username %></strong>
+      <em>(<%= @user.offers.size %> jeu(x))</em>
+    <% end %>
+  </h5>
+</div>
+
 <% @user.offers.each do |offer| %>
-  <% test += offer.game.average_price.to_i %>
 
   <div class="card-game">
 
@@ -33,18 +38,14 @@
         </p>
       </div>
 
-      <div class='card-game-actions'>
-        <%= link_to offer_path(offer), class: "btn btn-primary" do %>
-          Détails
-        <% end %>
-        <br>
+      <div class='card-game-info-actions'>
         <%if offer.user == current_user %>
-          <%= link_to edit_offer_path(offer), class: "btn btn-dark"  do %>
-            Modifier
+          <%= link_to edit_offer_path(offer)  do %>
+            <i class="fa-solid fa-pen-to-square"></i>
           <% end %>
           <br>
-          <%= link_to offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"}, class: "btn btn-danger" do %>
-            Effacer
+          <%= link_to offer_path(offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer cette annonce ?"} do %>
+            <i class="fa-solid fa-trash"></i>
           <% end %>
         <%end%>
 
@@ -54,4 +55,3 @@
 
   </div>
 <% end %>
-<%= test %>
