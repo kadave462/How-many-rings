@@ -1,21 +1,49 @@
-<div class='card-game'>
-  <div class="card-game-infos">
-    <div class ="card-game-infos-img">
-      <%= image_tag @game.cover %>
-    </div>
-    <div class = "card-game-infos-tags">
-      <h5><strong><%= @game.title %></strong></h5>
-      <p>Possesseur :<strong><%=@offer.user.username %></strong></p>
-      <p>Genre : <strong><%= @game.genre %></strong></p>
-      <p>Plateforme :<strong><%= @game.platform %></strong></p>
-      <p>Editeur : <strong><%= @game.publisher %></strong></p>
-    </div>
-  </div>
+<div class="card-generic">
+    <h3 class="text-center">
+      Annonce de <strong><%=@offer.user.username %></strong>
+    </h2>
 </div>
 
-<div class="card-game">
-  <h2 class="text-center">Mon exemplaire</h2>
-  <div class ="card-game-infos-img1">
+<div class='card-game' data-controller="add-favori"
+     data-add-favori-game-id-value="<%= @game.id %>"
+     data-add-favori-favori-id-value="<%= @game.favoris.where(user: current_user).first&.id %>"
+     data-add-favori-target="cardGame"
+  >
+    <div class='card-game-infos-img'>
+      <%= image_tag @game.cover %>
+    </div>
+
+    <div class='card-game-infos'>
+
+      <div class='card-game-infos-tags'>
+
+        <div class="wrapper-row-spacebtw">
+          <h5><strong><%= @game.title %></h5></strong>
+          <% if @game.favoris.where(user: current_user).empty? %>
+            <i class=" fa-regular fa-heart fa-lg card-logo-heart" data-action="click->add-favori#createFavori"></i>
+          <% else %>
+            <i class=" fa-solid fa-heart fa-lg card-logo-heart" data-action="click->add-favori#destroyFavori"></i>
+          <% end %>
+        </div>
+
+        <%= @game.platform %><br>
+        <em><%= @game.publisher %></em><br>
+
+      </div>
+
+      <div class='card-game-info-actions'>
+        <%= link_to new_game_offer_path(@game), class: 'btn btn-success w-100' do %>
+          Estimer mon jeu
+        <% end %>
+      </div>
+    </div>
+
+
+  </div>
+
+<div class="card-offer">
+
+  <div class ="card-offer-infos-img">
     <% if @offer.photos.attached? %>
       <% @offer.photos.each do |photo| %>
         <%= cl_image_tag photo.key %>
@@ -26,33 +54,43 @@
   </div>
 
   <div class ="card-game-infos-tags">
-    <p>Prix: <strong><%=@offer.price %>€</strong></p>
-    <p>Etat : <strong><%=@offer.media_condition %></strong></p>
-    <p>Couverture: <strong><%=@offer.cover_condition %></strong></p>
-    <p>Boite: <strong><%=@offer.box_condition %></strong></p>
-    <p>Description: <strong><%=@offer.description%></strong></p>
-      <%if @offer.user != current_user %>
-        <%= link_to offer_path(@offer), class: "btn btn-primary d-block "  do %>
-          Acheter
-        <% end %>
-      <%else%>
-        <div class='card-game-actions2'>
-          <%= link_to edit_offer_path(@offer),class:"btn btn-dark d-block col-7 " do %>
-              Modifier
-          <% end %>
-          <%= link_to offer_path(@offer), class: "btn btn-danger d-block col-7 ", data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"} do %></span>
-            Supprimer
-          <% end %>
-        </div>
-      <%end%>
+    <br>
+    <p>Prix : <strong><%=@offer.price %>€</strong></p>
+    <br>
+    <p>Boîte : <strong><%=@offer.box_condition %></strong></p>
+    <p>Jaquette : <strong><%=@offer.cover_condition %></strong></p>
+    <p>Manuel : <strong><%=@offer.manual_condition %></strong></p>
+    <p>Jeu : <strong><%=@offer.media_condition %></strong></p>
+    <br>
+    <p>Description:</p>
+    <p class="border p-1"><strong><%=@offer.description%></strong></p>
+    <br>
+
   </div>
+    <div class='card-game-actions'>
+
+      <%if @offer.user != current_user %>
+
+      <%else%>
+
+        <%= link_to edit_offer_path(@offer) do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+        <%= link_to offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Supprimer ce jeu ?"} do %></span>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+
+      <% end %>
+
+    </div>
+
 </div>
 
 
-<div class="card-game">
+<div class="card-generic">
 
   <div class="chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @offer.id %>">
-    <h3 class="text-center">Chat en direct</h3>
+    <h4 class="text-center">Discuter avec le vendeur</h4>
 
     <div class="card-chat messages" data-chatroom-subscription-target="messages">
       <% @offer.messages.each do |message| %>

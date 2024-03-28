@@ -1,4 +1,4 @@
-<div class="card-game">
+<div class="card-generic">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -9,7 +9,7 @@
       <%= f.input :username %>
 
       <%= f.input :photo, as: :file, label: 'Photo de profil (facultatif)' %>
-      <br><br>
+
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
