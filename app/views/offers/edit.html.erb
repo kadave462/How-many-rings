@@ -12,6 +12,7 @@
         <%= cl_image_tag photo.key %>
       <% end %>
     <% end %>
+    <br><br>
     <%= f.label :photos, "Photo(s) : (facultatif)" %>
     <%= f.file_field :photos, multiple: true %>
     <br><br>
