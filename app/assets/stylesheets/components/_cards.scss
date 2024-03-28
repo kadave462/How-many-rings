@@ -1,13 +1,6 @@
 .mobile-container {
   width: 360px;
   margin: auto;
-
-  & img {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    border-radius: 5px;
-  }
 }
 
 .decoration-none {
@@ -25,13 +18,12 @@
 
 .card-game {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   // border: 1px solid;
-  padding: 8px;
-  margin-top: -6px;
-  margin-bottom: 16px;
+  // padding: 8px;
+  margin-bottom: 8px;
   border-radius: 5px;
-  background-color: rgba(256, 256, 256, 0.8);
+  background-color: rgba(256, 256, 256, 0.9);
 }
 
 .card-game-offer-new {
@@ -42,63 +34,40 @@
   margin-top: -6px;
   margin-bottom: 16px;
   border-radius: 5px;
-  background-color: rgba(256, 256, 256, 0.8);
+  background-color: rgba(256, 256, 256, 0.9);
 }
 
 .card-game-actions {
   display: flex;
   // margin: auto;
-
+  
   & a {
     margin-right: 1px;
     margin-left: 1px;
     margin-top: 4px;
     border-radius: 5px;
   }
-}
 
-.card-game-actions1 {
-  display: flex;
-  // margin: auto;
-  margin-left: 158px;
-  width: 270px;
-
-  & a {
-    margin-right: 1px;
-    margin-left: 1px;
-    margin-top: 4px;
-    border-radius: 5px;
-  }
-}
-
-.card-game-actions2 {
-  display: flex;
-  // margin: auto;
-  width: 290px;
-
-  & a {
-    margin-right: 2px;
-    margin-left: 2px;
-    margin-top: 4px;
-    border-radius: 5px;
-  }
-}
-
-.card-game-estimation {
 }
 
 .card-game-infos {
   display: flex;
-  flex-direction: row;
-  padding-bottom: 4px;
+  flex-direction: column;
+  flex-grow: 1;
+  // padding: 8px 4px 0px;
+  padding: 8px;
+  justify-content: space-between;
+}
+
+.card-game-info-actions {
+  display: flex;
+  justify-content: space-around;
 }
 
 .card-game-infos-img {
-  padding: 1px 15px 1px 1px;
-
   & img {
     width: 150px;
-    height: 200px;
+    border-radius: 5px;
   }
 }
 
@@ -115,16 +84,18 @@
   & p {
     margin: 0px;
   }
+  & i {
+    margin-top: 9px;
+    color: red;
+  }
 }
 
 .card-offer-infos {
   display: flex;
   flex-direction: column;
-  border: 1px solid;
-  margin: 8px;
   padding: 8px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(256, 256, 256, 0.9);
 
   & p {
     margin: 0;
@@ -148,27 +119,33 @@ body {
   background-position: top right;
 }
 
-.card-logo-heart {
-  display: flex;
-  margin-left: 320px;
-  margin-bottom: 156px;
-  margin-top: -197px;
-  color: red;
-  transition: 2s ease;
-}
+// .card-logo-heart {
+//   display: flex;
+//   margin-left: 320px;
+//   margin-bottom: 156px;
+//   margin-top: -197px;
+//   color: red;
+//   transition: 2s ease;
+// }
 
-.card-logo-heart:hover {
-  display: flex;
-  margin-left: 320px;
-  margin-bottom: 156px;
-  margin-top: -197px;
-  color: red;
-  filter: none;
-  transition: 2s ease;
-}
+// .card-logo-heart:hover {
+//   display: flex;
+//   margin-left: 320px;
+//   margin-bottom: 156px;
+//   margin-top: -197px;
+//   color: red;
+//   filter: none;
+//   transition: 2s ease;
+// }
 
 .card-button {
   display: flex;
   // margin: auto;
   justify-content: right;
+}
+
+.wrapper-row-spacebtw {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

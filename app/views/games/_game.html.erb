@@ -3,30 +3,38 @@
      data-add-favori-favori-id-value="<%= game.favoris.where(user: current_user).first&.id %>"
      data-add-favori-target="cardGame"
   >
+    <div class='card-game-infos-img'>
+      <%= image_tag game.cover %>
+    </div>
+
     <div class='card-game-infos'>
-      <div class='card-game-infos-img'>
-        <%= image_tag game.cover %>
-      </div>
+
       <div class='card-game-infos-tags'>
-        <h5><strong><%= game.title %></h5></strong>
+
+        <div class="wrapper-row-spacebtw">
+          <h5><strong><%= game.title %></h5></strong>
+          <% if game.favoris.where(user: current_user).empty? %>
+            <i class=" fa-regular fa-heart fa-lg card-logo-heart" data-action="click->add-favori#createFavori"></i>
+          <% else %>
+            <i class=" fa-solid fa-heart fa-lg card-logo-heart" data-action="click->add-favori#destroyFavori"></i>
+          <% end %>
+        </div>
+
         <%= game.platform %><br>
         <em><%= game.publisher %></em><br>
         <%= game.offers.size %> annonce(s)
+
+      </div>
+
+      <div class='card-game-info-actions'>
+        <%= link_to game_path(game), class: 'btn btn-primary' do %>
+          Détails
+        <% end %>
+        <%= link_to new_game_offer_path(game), class: 'btn btn-success' do %>
+          Estimer
+        <% end %>
       </div>
     </div>
 
-      <% if game.favoris.where(user: current_user).empty? %>
-          <i class=" fa-regular fa-heart fa-lg card-logo-heart" data-action="click->add-favori#createFavori"></i>
-      <% else %>
-        <i class=" fa-solid fa-heart fa-lg card-logo-heart" data-action="click->add-favori#destroyFavori"></i>
-      <% end %>
 
-    <div class='card-game-actions1'>
-      <%= link_to game_path(game), class: 'btn btn-primary btn-sm col-4' do %>
-        Détails
-      <% end %>
-      <%= link_to new_game_offer_path(game), class: 'btn btn-success btn-sm col-4' do %>
-        Estimer
-      <% end %>
-    </div>
   </div>
