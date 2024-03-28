@@ -34,10 +34,23 @@
   margin-top: -6px;
   margin-bottom: 16px;
   border-radius: 5px;
-  background-color: rgba(256, 256, 256, 0.8);
+  background-color: rgba(256, 256, 256, 0.9);
 }
 
 .card-game-actions {
+  display: flex;
+  // margin: auto;
+
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
+
+}
+
+.card-game-infos {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -55,24 +68,6 @@
   & img {
     width: 150px;
     border-radius: 5px;
-  }
-}
-
-.card-game-estimation {
-}
-
-.card-game-infos {
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 4px;
-}
-
-.card-game-infos-img {
-  padding: 1px 15px 1px 1px;
-
-  & img {
-    width: 150px;
-    height: 200px;
   }
 }
 
