@@ -1,27 +1,27 @@
 /* Rainbow glow button */
 .rainbow {
-  color: black;
+  color: white;
   position: relative;
   padding: 10px 133px;
   top: 10px;
   left: 8px;
   border-radius: 5px;
-
+  background: #0b5ed7;
     // background: linear-gradient(90deg, #731AA5, #f3ACFD, #731AA5, #225de0, #96d3ff, #225de0, #499e9c, #d3ffff, #499e9c, #b3b65f, #fcf9b2, #b3b65f, #f5e555, #fffb80, #f5e555, #deaa29, #fbeca4, #deaa29, #ce1831, #fec9d0, #ce1831, #ce4919, #edd0c5, #ce4919, #bc6181, #fcf1f7, #bc6181);
 
     // background: linear-gradient(90deg, #731AA5, #f3ACFD, #225de0, #96d3ff, #499e9c, #d3ffff, #b3b65f, #fcf9b2, #f5e555, #fffb80, #deaa29, #fbeca4, #ce1831, #fec9d0, #ce4919, #edd0c5, #bc6181, #fcf1f7);
 
-    background: linear-gradient(90deg, #FD1015, #E67E22, #fffb00, #1EDD88,#0D6EFD, #03a9f4, #8300e9, #FD1015);
+    // background: linear-gradient(90deg, #FD1015, #E67E22, #fffb00, #1EDD88,#0D6EFD, #03a9f4, #8300e9, #FD1015);
 
     // background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
 
-  background-size: 400%;
-  animation: rainbow 5s linear infinite;
+  // background-size: 400%;
+  // animation: rainbow 5s linear infinite;
 }
-@keyframes rainbow {
-  0% { background-position: 0%; }
-  100% { background-position: 400%; }
-}
+//@keyframes rainbow {
+//  0% { background-position: 0%; }
+//  100% { background-position: 400%; }
+//}
 
 .add-my-collection {
   color: black;
