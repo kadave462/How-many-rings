@@ -12,7 +12,7 @@
     </div>
   </div>
 
-<div class="card-game">
+<div class="card-game-offer-new">
 
   <p><strong>Décrivez l'état de vôtre jeu :</p></strong>
 
@@ -20,12 +20,12 @@
 
     <%= simple_form_for [@game, @offer] do |f| %>
 
-        <%= f.input :media_condition, collection: Offer::CONDITIONS, required: true, input_html: { data: { estimate_target: "game" } } %>
-        <%= f.input :box_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "box" } } %>
-        <%= f.input :cover_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "cover" } } %>
-        <%= f.input :manual_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "manual" } } %>
+        <%= f.input :media_condition, collection: Offer::CONDITIONS, required: true, input_html: { data: { estimate_target: "game" } }, label: "État du jeu :" %>
+        <%= f.input :box_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "box" } }, label: "État de la boîte :" %>
+        <%= f.input :cover_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "cover" } }, label: "État de la jaquette :" %>
+        <%= f.input :manual_condition, collection: Offer::CONDITIONS, input_html: { data: { estimate_target: "manual" } }, label: "État de la notice :" %>
 
-        <span data-action="click->estimate#displaySubmitArea" class='btn btn-info d-block'>Estimer</span>
+        <span data-action="click->estimate#displaySubmitArea" class='rainbow'>Estimer</span>
 
         <%# Zone masquée par défaut mais qui s'affiche au clic sur "Estimer"%>
         <div data-estimate-target="addButton" class="d-none">
@@ -37,16 +37,17 @@
           <%= f.label :on_sale, "Oui" %>
           <%= f.radio_button :on_sale, false, { required: true, data: { action: "click->estimate#notOnSale" } } %>
           <%= f.label :on_sale, "Non" %>
-          <br><br>
-          <%= f.submit "Ajouter à ma collection", class: "btn btn-success w-100", data: { estimate_target: "firstAddButton" } %>
-
+          <br>
+          <%= f.submit "Ajouter à ma collection", class: "btn add-my-collection", data: { estimate_target: "firstAddButton" } %>
+            <br>
           <div data-estimate-target="offerInfos" class="d-none">
             <%= f.input :price, input_html: { data: { estimate_target: "userPrice" } } %>
             <%= f.label :photos, "Photos : (facultatif)" %>
+            <br>
             <%= f.file_field :photos, multiple: true %>
             <br><br>
             <%= f.input :description %>
-            <%= f.submit "Mettre en vente", class: "btn btn-success w-100" %>
+            <%= f.submit "Mettre en vente", class: "btn put-on-sell" %>
           </div>
         </div>
         <%# Fin de la zone masquée %>
