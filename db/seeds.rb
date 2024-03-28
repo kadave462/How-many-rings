@@ -68,103 +68,6 @@ game5 = Game.create!(
   average_price: 200
 )
 
-user1 = User.create!(
-  username: 'JuJu',
-  email: 'julien@email.com',
-  password: 'julien'
-)
-
-user2 = User.create!(
-  username: 'john',
-  email: 'jonathan@email.com',
-  password: 'jonathan'
-)
-
-user3 = User.create!(
-  username: 'david',
-  email: 'david@email.com',
-  password: 'davidk'
-)
-
-offer1 = Offer.create!(
-  user_id: user1.id,
-  game_id: game5.id,
-  on_sale: true,
-  description: 'Notice absente, boîte pas ouf',
-  price: 150,
-  media_condition: 'Bon état',
-  cover_condition: 'Très bon état',
-  box_condition: 'Très bon état',
-  manual_condition: 'Absent'
-)
-
-offer2 = Offer.create!(
-  user_id: user1.id,
-  game_id: game2.id,
-  on_sale: true,
-  description: 'Notice abimée',
-  price: 130,
-  media_condition: 'Très bon état',
-  cover_condition: 'Bon état',
-  box_condition: 'Très bon état',
-  manual_condition: 'Mauvais état'
-)
-
-offer3 = Offer.create!(
-  user_id: user2.id,
-  game_id: game1.id,
-  on_sale: true,
-  description: 'Pas de jaquette',
-  price: 25,
-  media_condition: 'Mauvais état',
-  cover_condition: 'Absent',
-  box_condition: 'Bon état',
-  manual_condition: 'Très bon état'
-)
-
-offer4 = Offer.create!(
-  user_id: user3.id,
-  game_id: game4.id,
-  on_sale: true,
-  description: 'Bon état général',
-  price: 55,
-  media_condition: 'Bon état',
-  cover_condition: 'Très bon état',
-  box_condition: 'Très bon état',
-  manual_condition: 'Mauvais état'
-)
-
-offer5 = Offer.create!(
-  user_id: user2.id,
-  game_id: game3.id,
-  on_sale: true,
-  description: 'Jeu abîmé mais le reste est nickel',
-  price: 65,
-  media_condition: 'Mauvais état',
-  cover_condition: 'Très bon état',
-  box_condition: 'Très bon état',
-  manual_condition: 'Bon état'
-)
-
-Favori.create!(
-  user_id: user2.id,
-  game_id: game3.id
-)
-
-Favori.create!(
-  user_id: user2.id,
-  game_id: game5.id
-)
-
-Favori.create!(
-  user_id: user1.id,
-  game_id: game2.id
-)
-
-Favori.create!(
-  user_id: user3.id,
-  game_id: game3.id
-)
 
 Game.create!(
   title: "Yoshi's Story",
@@ -220,5 +123,166 @@ Game.create!(
   publisher: 'Electronic Arts',
   average_price: 10
 )
+
+user1 = User.create!(
+  username: 'JuJu',
+  email: 'julien@email.com',
+  password: 'julien'
+)
+
+user2 = User.create!(
+  username: 'John',
+  email: 'jonathan@email.com',
+  password: 'jonathan'
+)
+
+user3 = User.create!(
+  username: 'David',
+  email: 'david@email.com',
+  password: 'davidk'
+)
+
+user4 = User.create!(
+  username: 'Jean Loup',
+  email: 'jean@email.com',
+  password: 'jeannot'
+)
+
+user5 = User.create!(
+  username: 'Antoine',
+  email: 'antoine@email.com',
+  password: 'antoine'
+)
+
+20.times do
+  username = Faker::Name.first_name
+  email = Faker::Internet.email
+  password = Faker::Internet.password(min_length: 8)
+
+  User.create!(
+    username: username,
+    email: email,
+    password: password
+  )
+end
+
+users_ids = []
+User.find_each do |user|
+  users_ids << user.id
+end
+
+descriptions = [
+  "Comme neuf, joué une fois, aucun défaut visible.",
+  "Quelques égratignures sur le disque, mais fonctionne parfaitement.",
+  "Boîtier légèrement endommagé, mais le disque est en bon état.",
+  "Manuel manquant, mais la boîte et le disque sont en excellent état.",
+  "Quelques marques d'usure sur le boîtier, mais le disque est impeccable.",
+  "Disque rayé mais jouable sans problème, boîtier en bon état.",
+  "Tout est en excellent état, comme neuf, jamais utilisé.",
+  "Boîtier légèrement fissuré, mais le disque fonctionne parfaitement.",
+  "Manuel inclus, mais boîte et disque montrent des signes d'usure.",
+  "Disque en bon état, boîtier avec quelques égratignures mineures.",
+  "Complet avec manuel et boîte, légères marques d'utilisation.",
+  "Usure légère sur le boîtier, mais le disque est en bon état."
+]
+
+etat = ['Absent', 'Bon état', 'Très bon état', 'Mauvais état' ]
+
+Game.find_each do |game|
+  rand(2..4).times do
+    Offer.create!(
+      user_id: users_ids.sample,
+      game_id: game.id,
+      on_sale: true,
+      description: descriptions.sample,
+      price: rand(20..200),
+      media_condition: etat.sample,
+      cover_condition: etat.sample,
+      box_condition: etat.sample,
+      manual_condition: etat.sample
+    )
+  end
+end
+
+# offer1 = Offer.create!(
+#   user_id: user1.id,
+#   game_id: game5.id,
+#   on_sale: true,
+#   description: 'Notice absente, boîte pas ouf',
+#   price: 150,
+#   media_condition: 'Bon état',
+#   cover_condition: 'Très bon état',
+#   box_condition: 'Très bon état',
+#   manual_condition: 'Absent'
+# )
+
+# offer2 = Offer.create!(
+#   user_id: user1.id,
+#   game_id: game2.id,
+#   on_sale: true,
+#   description: 'Notice abimée',
+#   price: 130,
+#   media_condition: 'Très bon état',
+#   cover_condition: 'Bon état',
+#   box_condition: 'Très bon état',
+#   manual_condition: 'Mauvais état'
+# )
+
+# offer3 = Offer.create!(
+#   user_id: user2.id,
+#   game_id: game1.id,
+#   on_sale: true,
+#   description: 'Pas de jaquette',
+#   price: 25,
+#   media_condition: 'Mauvais état',
+#   cover_condition: 'Absent',
+#   box_condition: 'Bon état',
+#   manual_condition: 'Très bon état'
+# )
+
+# offer4 = Offer.create!(
+#   user_id: user3.id,
+#   game_id: game4.id,
+#   on_sale: true,
+#   description: 'Bon état général',
+#   price: 55,
+#   media_condition: 'Bon état',
+#   cover_condition: 'Très bon état',
+#   box_condition: 'Très bon état',
+#   manual_condition: 'Mauvais état'
+# )
+
+# offer5 = Offer.create!(
+#   user_id: user2.id,
+#   game_id: game3.id,
+#   on_sale: true,
+#   description: 'Jeu abîmé mais le reste est nickel',
+#   price: 65,
+#   media_condition: 'Mauvais état',
+#   cover_condition: 'Très bon état',
+#   box_condition: 'Très bon état',
+#   manual_condition: 'Bon état'
+# )
+
+Favori.create!(
+  user_id: user2.id,
+  game_id: game3.id
+)
+
+Favori.create!(
+  user_id: user2.id,
+  game_id: game5.id
+)
+
+Favori.create!(
+  user_id: user1.id,
+  game_id: game2.id
+)
+
+Favori.create!(
+  user_id: user3.id,
+  game_id: game3.id
+)
+
 
 puts 'Seeds OK.'
