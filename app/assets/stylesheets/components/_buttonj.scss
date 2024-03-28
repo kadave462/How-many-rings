@@ -1,51 +1,88 @@
-/* ---------- Useful Button styling ---------- */
-
-.button{
+/* Rainbow glow button */
+.rainbow {
+  color: black;
   position: relative;
-  background-color: black;
-  border-radius: 4em;
-  font-size: 16px;
-  color: white;
-  padding: 0.8em 1.8em;
-  cursor:pointer;
-  user-select:none;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  padding: 10px 133px;
+  top: 10px;
+  left: 8px;
+  border-radius: 5px;
+
+    // background: linear-gradient(90deg, #731AA5, #f3ACFD, #731AA5, #225de0, #96d3ff, #225de0, #499e9c, #d3ffff, #499e9c, #b3b65f, #fcf9b2, #b3b65f, #f5e555, #fffb80, #f5e555, #deaa29, #fbeca4, #deaa29, #ce1831, #fec9d0, #ce1831, #ce4919, #edd0c5, #ce4919, #bc6181, #fcf1f7, #bc6181);
+
+    // background: linear-gradient(90deg, #731AA5, #f3ACFD, #225de0, #96d3ff, #499e9c, #d3ffff, #b3b65f, #fcf9b2, #f5e555, #fffb80, #deaa29, #fbeca4, #ce1831, #fec9d0, #ce4919, #edd0c5, #bc6181, #fcf1f7);
+
+    background: linear-gradient(90deg, #FD1015, #E67E22, #fffb00, #1EDD88,#0D6EFD, #03a9f4, #8300e9, #FD1015);
+
+    // background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+
+  background-size: 400%;
+  animation: rainbow 5s linear infinite;
+}
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 400%; }
 }
 
-.button:hover {
-  transition-duration: 0.1s;
-  background-color: #3A3A3A;
+.add-my-collection {
+  color: black;
+  position: relative;
+  padding: 5px 71px;
+  top: 18px;
+  left: 8px;
+  background: #1EDD88;
+
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
 }
 
-.button:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 4em;
-  left: 0;
-  top:0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: all 0.5s;
-  box-shadow: 0 0 10px 40px white;
+.add-my-collection:hover {
+  color: black;
+  position: relative;
+  padding: 5px 71px;
+  top: 18px;
+  left: 8px;
+  background: #40E29A;
+
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
 }
 
-.button:active:after {
-  box-shadow: 0 0 0 0 white;
-  position: absolute;
-  border-radius: 4em;
-  left: 0;
-  top:0;
-  opacity: 1;
-  transition: 0s;
+.put-on-sell {
+  color: black;
+  position: relative;
+  padding: 5px 100px;
+  top: 10px;
+  left: 8px;
+  background: #1EDD88;
+
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
 }
 
-.button:active {
-  top: 1px;
-}
+.put-on-sell:hover {
+  color: black;
+  position: relative;
+  padding: 5px 100px;
+  top: 10px;
+  left: 8px;
+  background: #40E29A;
 
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
+}

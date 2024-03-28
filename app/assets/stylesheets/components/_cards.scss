@@ -26,6 +26,30 @@
   background-color: rgba(256, 256, 256, 0.9);
 }
 
+.card-game-offer-new {
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid;
+  padding: 7px 10px 30px 10px;
+  margin-top: -6px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  background-color: rgba(256, 256, 256, 0.9);
+}
+
+.card-game-actions {
+  display: flex;
+  // margin: auto;
+  
+  & a {
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
+
+}
+
 .card-game-infos {
   display: flex;
   flex-direction: column;
@@ -47,7 +71,13 @@
   }
 }
 
-.card-game-estimation {
+.card-game-infos-img1 {
+  margin: auto;
+  & img {
+    width: 150px;
+    height: 200px;
+    margin-bottom: 2px;
+  }
 }
 
 .card-game-infos-tags {
