@@ -40,6 +40,10 @@
 
       <div class='card-game-info-actions'>
         <%if offer.user == current_user %>
+          <%= link_to offer_path(offer)  do %>
+            <i class="fa-solid fa-eye"></i>
+          <% end %>
+          <br>
           <%= link_to edit_offer_path(offer)  do %>
             <i class="fa-solid fa-pen-to-square"></i>
           <% end %>

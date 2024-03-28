@@ -19,39 +19,29 @@
 .card-game {
   display: flex;
   flex-direction: row;
-  margin-bottom: 16px;
-  border-radius: 5px;
-  background-color: rgba(256, 256, 256, 1);
-}
-
-.card-game-offer-new {
-  display: flex;
-  flex-direction: column;
-  // border: 1px solid;
-  padding: 7px 10px 30px 10px;
-  margin-top: -6px;
-  margin-bottom: 16px;
+  margin: 16px 0px;
   border-radius: 5px;
   background-color: rgba(256, 256, 256, 1);
 }
 
 .card-game-actions {
   display: flex;
-  // margin: auto;
-  
-  // & a {
-  //   margin-right: 1px;
-  //   margin-left: 1px;
-  //   margin-top: 4px;
-  //   border-radius: 5px;
-  // }
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  & i {
+    color: black;
+  }
+
+  & i:hover {
+    color: red;
+  }
 }
 
 .card-game-infos {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  // padding: 8px 4px 0px;
   padding: 8px;
   justify-content: space-between;
 }
@@ -96,11 +86,32 @@
   }
 }
 
+.card-game-offer-new {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin-top: -6px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  background-color: rgba(256, 256, 256, 1);
+}
+
 .card-generic {
   margin-bottom: 8px;
   border-radius: 5px;
-  background-color: rgba(256, 256, 256, 0.9);
+  background-color: rgba(256, 256, 256, 1);
   padding: 8px;
+
+  & h3 {
+    margin: 0;
+  }
+}
+
+.card-offer {
+  background-color: rgba(256, 256, 256, 1);
+  padding: 8px;
+  margin-bottom: 16px;
+  border-radius: 5px;
 }
 
 .card-offer-infos {
@@ -108,10 +119,26 @@
   flex-direction: column;
   padding: 8px;
   border-radius: 5px;
-  background-color: rgba(256, 256, 256, 0.9);
+  background-color: rgba(256, 256, 256, 1);
 
   & p {
     margin: 0;
+  }
+
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+
+  & a:hover {
+    color: red;
+  }
+}
+
+.card-offer-infos-img {
+  & img {
+    width: 150px;
+    border-radius: 5px;
   }
 }
 
