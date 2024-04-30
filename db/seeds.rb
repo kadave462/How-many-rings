@@ -189,7 +189,7 @@ descriptions = [
 etat = ['Absent', 'Bon état', 'Très bon état', 'Mauvais état' ]
 
 Game.find_each do |game|
-  rand(2..4).times do
+  rand(3..4).times do
     Offer.create!(
       user_id: users_ids.sample,
       game_id: game.id,

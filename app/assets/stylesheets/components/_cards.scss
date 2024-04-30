@@ -1,5 +1,5 @@
 .mobile-container {
-  width: 360px;
+  width: 370px;
   margin: auto;
 }
 
@@ -7,6 +7,10 @@
   text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 .card-chat {
   background-color: white;
   height: 300px;
@@ -29,13 +33,6 @@
   flex-direction: row;
   justify-content: space-evenly;
 
-  & i {
-    color: black;
-  }
-
-  & i:hover {
-    color: red;
-  }
 }
 
 .card-game-infos {
@@ -43,27 +40,19 @@
   flex-direction: column;
   flex-grow: 1;
   padding: 8px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .card-game-info-actions {
   display: flex;
   justify-content: space-evenly;
-
-  & i {
-    text-decoration: none;
-    color: black;
-  }
-
-  & i:hover {
-    color: red;
-  }
 }
 
 .card-game-infos-img {
   & img {
     width: 150px;
     border-radius: 5px;
+    height: 100%;
   }
 }
 
@@ -131,7 +120,7 @@
   }
 
   & a:hover {
-    color: red;
+    color: rgb(229, 3, 3);
   }
 }
 
