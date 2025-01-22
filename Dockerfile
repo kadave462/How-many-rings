@@ -62,12 +62,18 @@ RUN bundle exec rails assets:precompile
 # Final stage
 FROM base
 
-# Install runtime dependencies
+# Install runtime dependencies including Node.js
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
     libvips \
     postgresql-client \
     imagemagick && \
+    # Add Node.js installation for production runtime
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" > /etc/apt/sources.list.d/nodesource.list && \
+    apt-get update && \
+    apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts from build stage
