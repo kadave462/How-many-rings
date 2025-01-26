@@ -1,4 +1,0 @@
-<%# Carte du jeu %>
-<% @favoris.each do |favori| %>
-  <%= render partial: 'games/game', locals: { game: favori.game, origin: "favoris-index" } %>
-<% end %>
