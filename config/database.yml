@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
-  database: how_many_rings_production
-  username: how_many_rings
-  password: <%= ENV["HOW_MANY_RINGS_DATABASE_PASSWORD"] %>
+  # database: how_many_rings_production
+  # username: how_many_rings
+  # password: <%= ENV["HOW_MANY_RINGS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
